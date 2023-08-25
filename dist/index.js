@@ -3,11 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "Hello", {
+Object.defineProperty(exports, "FullpageWrapper", {
   enumerable: true,
   get: function get() {
-    return _hello.default;
+    return _FullpageWrapper.default;
   }
 });
-var _hello = _interopRequireDefault(require("./hello"));
+var _FullpageWrapper = _interopRequireDefault(require("./components/FullpageWrapper"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
