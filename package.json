@@ -1,8 +1,31 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "description": "MouseWheel 이벤트로 화면을 전환하는 React Fullpage Component 입니다.",
+  "keywords": [
+    "react",
+    "fullpage",
+    "scroll"
+  ],
+  "homepage": "https://github.com/shinyj1991/react-fullpage-scroll",
+  "bugs": {
+    "url": "https://github.com/shinyj1991/react-fullpage-scroll/issues",
+    "email": "shinyj1991@gmail.com"
+  },
+  "author": {
+    "name": "Yongjun Shin",
+    "email": "shinyj1991@gmail.com",
+    "url": "https://shinyongjun.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinyj1991/react-fullpage-scroll.git"
+  },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
