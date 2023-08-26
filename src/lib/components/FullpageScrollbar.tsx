@@ -48,8 +48,6 @@ function FullpageScrollbar({ scrollHeight, scrollY, section }: TProps) {
       if (section.current) {
         section.current.scrollTo(0, newScrollY);
       }
-
-      console.log(newScrollY);
     }
   }, [
     mouseY,
