@@ -2,4 +2,4 @@
 
 가벼운 React Fullpage 컴포넌트 입니다.
 
-[Demo Page](https://shinyongjun.com/package/react-fullpage){:target="_blank"}
+[Demo Page](https://shinyongjun.com/package/react-fullpage)
