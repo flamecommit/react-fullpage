@@ -2,11 +2,15 @@ import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { reset } from "../styles/mixin";
 
-const FullpageWrapper = () => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const FullpageWrapper = ({ children }: Props) => {
   return (
-    <StyledFullpageWrapper>
+    <StyledFullpageWrapper className="__fullpage-wrapper">
       <GlobalStyle />
-      <div>FullpageWrapper</div>
+      {children}
     </StyledFullpageWrapper>
   );
 };
@@ -33,6 +37,12 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     ${reset}
+    *:has(.__fullpage-wrapper) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      ${reset}
+    }
   }
 `;
 
