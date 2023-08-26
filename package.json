@@ -28,13 +28,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dist:build": "rm -rf dist && mkdir dist && yarn dist:build-js && yarn dist:build-types",
-    "dist:build-js": "babel ./src/lib -d ./dist --extensions .js,.ts,.tsx --config-file ./babel.config.json",
-    "dist:build-types": "tsc"
+    "dev": "react-scripts start",
+    "build": "rm -rf dist && mkdir dist && yarn dist:build-js && yarn dist:build-types",
+    "build-js": "babel ./src/lib -d ./dist --extensions .js,.ts,.tsx --config-file ./babel.config.json",
+    "build-types": "tsc"
   },
   "eslintConfig": {
     "extends": [
