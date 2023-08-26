@@ -16,41 +16,49 @@ type Props = {
   isFooter?: boolean;
 };
 
-function FullpageSection({ children, isFooter, activeIndex, sectionCount, isAnimating, setActiveIndex, setIsAnimating }: Props) {
+function FullpageSection({
+  children,
+  isFooter,
+  activeIndex,
+  sectionCount,
+  isAnimating,
+  setActiveIndex,
+  setIsAnimating,
+}: Props) {
   const section = useRef<HTMLDivElement>(null);
   const { isAtTop, isAtBottom, hasScrollbar } = useElementScroll(section);
   const [scrollDelay, setScrollDelay] = useState<boolean>(false);
 
   useEffect(() => {
     if (isAtTop || isAtBottom) {
-      setScrollDelay(true)
+      setScrollDelay(true);
       setTimeout(() => {
-        setScrollDelay(false)
-      }, 200)
+        setScrollDelay(false);
+      }, 200);
     } else {
-      setScrollDelay(false)
+      setScrollDelay(false);
     }
-  }, [isAtTop, isAtBottom])
+  }, [isAtTop, isAtBottom]);
 
   const moveToSection = (newIndex: number) => {
     if (setIsAnimating === undefined || setActiveIndex === undefined) return;
     if (isAnimating || scrollDelay) return;
-    setIsAnimating(true)
-    setActiveIndex(newIndex)
-  }
+    setIsAnimating(true);
+    setActiveIndex(newIndex);
+  };
 
   const moveToNextSection = () => {
     if (activeIndex === undefined || sectionCount === undefined) return;
     if (activeIndex >= sectionCount - 1) return;
     if (hasScrollbar && !isAtBottom) return;
-    moveToSection(activeIndex + 1)
+    moveToSection(activeIndex + 1);
   };
 
   const moveToPrevSection = () => {
     if (activeIndex === undefined) return;
     if (activeIndex <= 0) return;
     if (hasScrollbar && !isAtTop) return;
-    moveToSection(activeIndex - 1)
+    moveToSection(activeIndex - 1);
   };
 
   const handelWheel = (e: React.WheelEvent<HTMLDivElement>) => {
@@ -81,15 +89,16 @@ function FullpageSection({ children, isFooter, activeIndex, sectionCount, isAnim
       ref={section}
       onWheel={handelWheel}
       className={isFooter ? 'is-footer' : ''}
+      $isAnimating={isAnimating}
     >
       <FullpageContents>{children}</FullpageContents>
     </StyledFullpageSection>
   );
 }
 
-const StyledFullpageSection = styled.div`
+const StyledFullpageSection = styled.div<{ $isAnimating: boolean | undefined }>`
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: ${(props) => (props.$isAnimating ? 'hidden' : 'auto')};
   position: relative;
   -webkit-overflow-scrolling: touch;
   width: 100%;

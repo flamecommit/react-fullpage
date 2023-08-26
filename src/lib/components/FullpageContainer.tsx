@@ -11,15 +11,15 @@ type Props = {
 function FullpageContainer({ children }: Props) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false)
-  const [activeIndex, setActiveIndex] = useState<number>(0)
-  const [sectionCount, setSectionCount] = useState<number>(0)
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [sectionCount, setSectionCount] = useState<number>(0);
 
   useEffect(() => {
     if (!isAnimating) return;
 
     setTimeout(() => {
-      setIsAnimating(false)
+      setIsAnimating(false);
     }, 700);
   }, [isAnimating]);
 
@@ -37,13 +37,17 @@ function FullpageContainer({ children }: Props) {
 
   useEffect(() => {
     if (container !== null && container.current) {
-      setSectionCount(container.current.childElementCount)
+      setSectionCount(container.current.childElementCount);
     }
   }, [container]);
 
   return (
     <FullpageWrapper>
-      <StyledFullpageContainer $transformY={transformY} ref={container}>
+      <StyledFullpageContainer
+        $transformY={transformY}
+        ref={container}
+        data-is-animating={isAnimating}
+      >
         {React.Children.map(children, (child) => {
           const item = child as React.ReactElement;
           return React.cloneElement(item, {
@@ -52,7 +56,7 @@ function FullpageContainer({ children }: Props) {
             isAnimating,
             setIsAnimating,
             setActiveIndex,
-          })
+          });
         })}
       </StyledFullpageContainer>
     </FullpageWrapper>
