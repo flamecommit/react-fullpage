@@ -20,6 +20,6 @@
     "declaration": true,
     "outDir": "./dist"
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/index.js"],
   "exclude": ["node_modules", "helpers"]
 }
