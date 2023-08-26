@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import useElementScroll from '../hooks/useElementScroll';
 import useSwipe, { SwipeDirection } from '../hooks/useSwipe';
 import FullpageContents from './FullpageContents';
+import FullpageScrollbar from './FullpageScrollbar';
 
 type Props = {
   children?: React.ReactNode;
@@ -26,7 +27,8 @@ function FullpageSection({
   setIsAnimating,
 }: Props) {
   const section = useRef<HTMLDivElement>(null);
-  const { isAtTop, isAtBottom, hasScrollbar } = useElementScroll(section);
+  const { isAtTop, isAtBottom, hasScrollbar, scrollHeight, scrollY } =
+    useElementScroll(section);
   const [scrollDelay, setScrollDelay] = useState<boolean>(false);
 
   useEffect(() => {
@@ -92,6 +94,13 @@ function FullpageSection({
       $isAnimating={isAnimating}
     >
       <FullpageContents>{children}</FullpageContents>
+      {hasScrollbar && !isAnimating && (
+        <FullpageScrollbar
+          scrollHeight={scrollHeight}
+          scrollY={scrollY}
+          section={section}
+        />
+      )}
     </StyledFullpageSection>
   );
 }
@@ -103,6 +112,9 @@ const StyledFullpageSection = styled.div<{ $isAnimating: boolean | undefined }>`
   -webkit-overflow-scrolling: touch;
   width: 100%;
   height: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   &.is-footer {
     height: auto;
   }

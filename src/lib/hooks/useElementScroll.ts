@@ -9,6 +9,7 @@ export default function useElementScroll(
     isAtTop: true,
     isAtBottom: false,
     hasScrollbar: false,
+    scrollHeight: 0,
   });
 
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function useElementScroll(
         isAtTop,
         isAtBottom,
         hasScrollbar,
+        scrollHeight,
       });
     }
 

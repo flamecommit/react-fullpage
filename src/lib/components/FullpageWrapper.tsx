@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import { reset } from "../styles/mixin";
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { reset } from '../styles/mixin';
 
 type Props = {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ type Props = {
 
 const FullpageWrapper = ({ children }: Props) => {
   return (
-    <StyledFullpageWrapper className="__fullpage-wrapper">
+    <StyledFullpageWrapper className="__react-fullpage-wrapper">
       <GlobalStyle />
       {children}
     </StyledFullpageWrapper>
@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     ${reset}
-    *:has(.__fullpage-wrapper) {
+    *:has(.__react-fullpage-wrapper) {
       position: relative;
       width: 100%;
       height: 100%;
