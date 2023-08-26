@@ -1,18 +1,18 @@
 'use client';
 
 import styled from 'styled-components';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import useElementScroll from '../hooks/useElementScroll';
 import useSwipe, { SwipeDirection } from '../hooks/useSwipe';
 import FullpageContents from './FullpageContents';
 
 type Props = {
-  children: React.ReactNode;
-  activeIndex: number;
-  sectionCount: number;
-  isAnimating: boolean;
-  setIsAnimating: (payload: boolean) => void;
-  setActiveIndex: (payload: number) => void;
+  children?: React.ReactNode;
+  activeIndex?: number;
+  sectionCount?: number;
+  isAnimating?: boolean;
+  setIsAnimating?: (payload: boolean) => void;
+  setActiveIndex?: (payload: number) => void;
   isFooter?: boolean;
 };
 
@@ -33,18 +33,21 @@ function FullpageSection({ children, isFooter, activeIndex, sectionCount, isAnim
   }, [isAtTop, isAtBottom])
 
   const moveToSection = (newIndex: number) => {
+    if (setIsAnimating === undefined || setActiveIndex === undefined) return;
     if (isAnimating || scrollDelay) return;
     setIsAnimating(true)
     setActiveIndex(newIndex)
   }
 
   const moveToNextSection = () => {
+    if (activeIndex === undefined || sectionCount === undefined) return;
     if (activeIndex >= sectionCount - 1) return;
     if (hasScrollbar && !isAtBottom) return;
     moveToSection(activeIndex + 1)
   };
 
   const moveToPrevSection = () => {
+    if (activeIndex === undefined) return;
     if (activeIndex <= 0) return;
     if (hasScrollbar && !isAtTop) return;
     moveToSection(activeIndex - 1)
