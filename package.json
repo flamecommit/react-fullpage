@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "description": "MouseWheel 이벤트로 화면을 전환하는 React Fullpage Component 입니다.",
@@ -29,7 +29,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "react-scripts start",
-    "build": "rm -rf dist && mkdir dist && yarn dist:build-js && yarn dist:build-types",
+    "build": "rm -rf dist && mkdir dist && yarn build-js && yarn build-types",
     "build-js": "babel ./src/lib -d ./dist --extensions .js,.ts,.tsx --config-file ./babel.config.json",
     "build-types": "tsc"
   },
