@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "description": "MouseWheel 이벤트로 화면을 전환하는 React Fullpage Component 입니다.",
