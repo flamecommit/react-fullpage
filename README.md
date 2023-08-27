@@ -53,4 +53,4 @@ FooterSection에 추가합니다. (auto height)
 
 ## License
 
-MIT Licensed. Copyright Shinyongjun 2023.
+MIT Licensed. Copyright (c) 2023 shinyongjun.
