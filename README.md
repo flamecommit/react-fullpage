@@ -49,11 +49,7 @@ export default ExampleComponent;
 
 ### `isFooter`: boolean
 
-Footer에 해당하는 section에 추가합니다. (주로 Footer Section에 사용합니다.)
-
-```tsx
-<FullpageSection isFooter></FullpageSection>
-```
+FooterSection에 추가합니다. (auto height)
 
 ## License
 
