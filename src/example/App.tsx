@@ -8,16 +8,16 @@ import ThirdSection from './components/ThirdSection';
 function App() {
   return (
     <FullpageContainer>
-      <FullpageSection>
+      <FullpageSection name="first">
         <FirstSection />
       </FullpageSection>
       <FullpageSection>
         <SecondSection />
       </FullpageSection>
-      <FullpageSection>
+      <FullpageSection name="third">
         <ThirdSection />
       </FullpageSection>
-      <FullpageSection isAutoHeight>
+      <FullpageSection name="footer" isAutoHeight>
         <FooterSection />
       </FullpageSection>
     </FullpageContainer>

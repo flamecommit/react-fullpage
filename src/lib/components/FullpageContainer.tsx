@@ -48,9 +48,10 @@ function FullpageContainer({ children }: Props) {
         ref={container}
         data-is-animating={isAnimating}
       >
-        {React.Children.map(children, (child) => {
+        {React.Children.map(children, (child, index) => {
           const item = child as React.ReactElement;
           return React.cloneElement(item, {
+            index,
             activeIndex,
             sectionCount,
             isAnimating,

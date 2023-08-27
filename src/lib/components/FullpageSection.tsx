@@ -6,8 +6,10 @@ import useElementScroll from '../hooks/useElementScroll';
 import useSwipe, { SwipeDirection } from '../hooks/useSwipe';
 import FullpageContents from './FullpageContents';
 import FullpageScrollbar from './FullpageScrollbar';
+import useHash from '../hooks/useHash';
 
 type Props = {
+  index?: number;
   children?: React.ReactNode;
   activeIndex?: number;
   sectionCount?: number;
@@ -15,6 +17,7 @@ type Props = {
   setIsAnimating?: (payload: boolean) => void;
   setActiveIndex?: (payload: number) => void;
   isAutoHeight?: boolean;
+  name?: string;
 };
 
 function FullpageSection({
@@ -23,13 +26,25 @@ function FullpageSection({
   activeIndex,
   sectionCount,
   isAnimating = false,
-  setActiveIndex,
+  setActiveIndex = () => {},
   setIsAnimating,
+  name = '',
+  index = 0,
 }: Props) {
   const section = useRef<HTMLDivElement>(null);
   const { isAtTop, isAtBottom, hasScrollbar, scrollHeight, scrollY } =
     useElementScroll(section);
   const [scrollDelay, setScrollDelay] = useState<boolean>(false);
+  const { hashValue, updateHash } = useHash();
+
+  useEffect(() => {
+    if (hashValue) {
+      if (hashValue === name) {
+        setActiveIndex(index);
+        updateHash();
+      }
+    }
+  }, [hashValue, setActiveIndex, index, name, updateHash]);
 
   useEffect(() => {
     setScrollDelay(isAtTop || isAtBottom);

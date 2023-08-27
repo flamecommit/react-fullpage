@@ -49,9 +49,10 @@ export default ExampleComponent;
 
 ### FullpageSection
 
-| name           | type    | default | description                                                       |
-| -------------- | ------- | ------- | ----------------------------------------------------------------- |
-| `isAutoHeight` | boolean | false   | true일 때 height 값이 auto 가 됩니다. (주로 Footer에 사용합니다.) |
+| name         | required | type    | default | description                                                       |
+| ------------ | -------- | ------- | ------- | ----------------------------------------------------------------- |
+| name         | false    | string  | ''      | 렌더링 시 url의 hash(#)와 일치하는 name 섹션으로 이동합니다.      |
+| isAutoHeight | false    | boolean | false   | true일 때 height 값이 auto 가 됩니다. (주로 Footer에 사용합니다.) |
 
 ## License
 
