@@ -17,7 +17,7 @@ function App() {
       <FullpageSection>
         <ThirdSection />
       </FullpageSection>
-      <FullpageSection isFooter>
+      <FullpageSection isAutoHeight>
         <FooterSection />
       </FullpageSection>
     </FullpageContainer>

@@ -31,7 +31,7 @@ function ExampleComponent() {
       <FullpageSection>
         <div>Section 3</div>
       </FullpageSection>
-      <FullpageSection isFooter>
+      <FullpageSection isAutoHeight>
         <footer>Footer</footer>
       </FullpageSection>
     </FullpageContainer>
@@ -47,9 +47,9 @@ export default ExampleComponent;
 
 ## FullpageSection Props
 
-### `isFooter`: boolean
+### `isAutoHeight`: boolean
 
-FooterSection에 추가합니다. (auto height)
+true일 때 height 값이 auto 가 됩니다. (주로 Footer에 사용합니다.)
 
 ## License
 

@@ -14,15 +14,15 @@ type Props = {
   isAnimating?: boolean;
   setIsAnimating?: (payload: boolean) => void;
   setActiveIndex?: (payload: number) => void;
-  isFooter?: boolean;
+  isAutoHeight?: boolean;
 };
 
 function FullpageSection({
   children,
-  isFooter,
+  isAutoHeight = false,
   activeIndex,
   sectionCount,
-  isAnimating,
+  isAnimating = false,
   setActiveIndex,
   setIsAnimating,
 }: Props) {
@@ -95,8 +95,8 @@ function FullpageSection({
     <StyledFullpageSection
       ref={section}
       onWheel={handelWheel}
-      className={isFooter ? 'is-footer' : ''}
       $isAnimating={isAnimating}
+      $isAutoHeight={isAutoHeight}
     >
       <FullpageContents>{children}</FullpageContents>
       {hasScrollbar && !isAnimating && (
@@ -110,18 +110,18 @@ function FullpageSection({
   );
 }
 
-const StyledFullpageSection = styled.div<{ $isAnimating: boolean | undefined }>`
+const StyledFullpageSection = styled.div<{
+  $isAnimating: boolean;
+  $isAutoHeight: boolean;
+}>`
   overflow-x: hidden;
   overflow-y: ${(props) => (props.$isAnimating ? 'hidden' : 'auto')};
   position: relative;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-  height: 100%;
+  height: ${(props) => (props.$isAutoHeight ? 'auto' : '100%')};
   &::-webkit-scrollbar {
     display: none;
-  }
-  &.is-footer {
-    height: auto;
   }
 `;
 
