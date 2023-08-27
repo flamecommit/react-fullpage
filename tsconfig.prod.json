@@ -20,11 +20,6 @@
     "declaration": true,
     "outDir": "./dist"
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-    // "src/lib/**/*.ts",
-    // "src/lib/**/*.tsx"
-  ],
+  "include": ["src/lib/**/*.ts", "src/lib/**/*.tsx"],
   "exclude": ["node_modules"]
 }

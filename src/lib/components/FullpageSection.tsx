@@ -32,15 +32,20 @@ function FullpageSection({
   const [scrollDelay, setScrollDelay] = useState<boolean>(false);
 
   useEffect(() => {
-    if (isAtTop || isAtBottom) {
-      setScrollDelay(true);
-      setTimeout(() => {
-        setScrollDelay(false);
-      }, 200);
-    } else {
-      setScrollDelay(false);
-    }
+    setScrollDelay(isAtTop || isAtBottom);
   }, [isAtTop, isAtBottom]);
+
+  useEffect(() => {
+    if (scrollDelay) {
+      const timer = setTimeout(() => {
+        setScrollDelay(false);
+      }, 300);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [scrollDelay]);
 
   const moveToSection = (newIndex: number) => {
     if (setIsAnimating === undefined || setActiveIndex === undefined) return;
