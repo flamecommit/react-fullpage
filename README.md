@@ -41,16 +41,18 @@ function ExampleComponent() {
 export default ExampleComponent;
 ```
 
-## FullpageContainer Props
+## Props
+
+### FullpageContainer
 
 제작중입니다.
 
-## FullpageSection Props
+### FullpageSection
 
-### `isAutoHeight`: boolean
-
-true일 때 height 값이 auto 가 됩니다. (주로 Footer에 사용합니다.)
+| name           | type    | default | description                                                       |
+| -------------- | ------- | ------- | ----------------------------------------------------------------- |
+| `isAutoHeight` | boolean | false   | true일 때 height 값이 auto 가 됩니다. (주로 Footer에 사용합니다.) |
 
 ## License
 
-MIT Licensed. Copyright (c) 2023 shinyongjun.
+MIT Licensed. Copyright (c) 2023-present Shinyongjun.
