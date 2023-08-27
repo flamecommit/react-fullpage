@@ -1,20 +1,17 @@
 # React Fullpage
 
-가벼운 React Fullpage 컴포넌트 입니다.
+`React-fullpage` is a React Component library inspired by [fullpage.js](https://github.com/alvarotrigo/fullPage.js). It is characterized by its light size because it contains only key functions. [Demo](https://shinyongjun.com/package/react-fullpage)
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fshinyj1991%2Freact-fullpage&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-## Demo
-
-[Demo 보러가기](https://shinyongjun.com/package/react-fullpage)
-
-## 설치
+## Installation and usage
 
 ```
 npm install @shinyongjun/react-fullpage
+yarn add @shinyongjun/react-fullpage
 ```
 
-## 사용법
+There are two types of components: `FullpageContainer` and `FullpageSection`.
 
 ```tsx
 import {
@@ -43,3 +40,21 @@ function ExampleComponent() {
 
 export default ExampleComponent;
 ```
+
+## FullpageContainer Props
+
+제작중입니다.
+
+## FullpageSection Props
+
+### `isFooter`: boolean
+
+Footer에 해당하는 section에 추가합니다. (주로 Footer Section에 사용합니다.)
+
+```tsx
+<FullpageSection isFooter></FullpageSection>
+```
+
+## License
+
+MIT Licensed. Copyright Shinyongjun 2023.
