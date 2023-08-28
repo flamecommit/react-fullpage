@@ -1,7 +1,4 @@
-'use client';
-
 import React, { RefObject, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import useWindowSize from '../hooks/useWindowSize';
 import useMousePressed from '../hooks/useMousePressed';
 import useMousePosition from '../hooks/useMousePosition';
@@ -60,22 +57,22 @@ function FullpageScrollbar({ scrollHeight, scrollY, section }: TProps) {
   ]);
 
   return (
-    <StyledFullpageScrollbar
-      className="__react-fullpage-scrollbar"
+    <div
+      className="__react_fullpage-scrollbar"
       style={{ height: `${scrollHeight}px` }}
     >
       <div
-        className="__react-fullpage-scrollbar-sticker"
+        className="__react_fullpage-scrollbar-sticker"
         style={{ height: `${windowHeight}px` }}
       >
         <div
-          className="__react-fullpage-scrollbar-container"
+          className="__react_fullpage-scrollbar-container"
           style={{ height: `${windowHeight}px` }}
         >
           <button
             type="button"
             ref={handler}
-            className={`__react-fullpage-scrollbar-handler ${
+            className={`__react_fullpage-scrollbar-handler ${
               isMousePressed && 'is-pressed'
             }`}
             style={{ top: `${handlerTop}%`, height: `${handlerHeight}%` }}
@@ -83,42 +80,8 @@ function FullpageScrollbar({ scrollHeight, scrollY, section }: TProps) {
           ></button>
         </div>
       </div>
-    </StyledFullpageScrollbar>
+    </div>
   );
 }
-
-const StyledFullpageScrollbar = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  width: 8px;
-  .__react-fullpage-scrollbar-sticker {
-    position: sticky;
-    top: 0;
-    width: 100%;
-  }
-  .__react-fullpage-scrollbar-container {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  .__react-fullpage-scrollbar-handler {
-    border: none;
-    border-radius: 4px;
-    background: none;
-    appearance: none;
-    cursor: pointer;
-    position: absolute;
-    padding: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.3);
-    cursor: default;
-    &.is-pressed {
-      background: rgba(0, 0, 0, 0.6);
-    }
-  }
-`;
 
 export default FullpageScrollbar;
