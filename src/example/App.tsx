@@ -7,7 +7,14 @@ import ThirdSection from './components/ThirdSection';
 
 function App() {
   return (
-    <FullpageContainer>
+    <FullpageContainer
+      onBeforeChange={(beforeIndex, afterIndex) => {
+        console.log('before', beforeIndex, afterIndex);
+      }}
+      onAfterChange={(beforeIndex, afterIndex) => {
+        console.log('after', beforeIndex, afterIndex);
+      }}
+    >
       <FullpageSection name="first">
         <FirstSection />
       </FullpageSection>

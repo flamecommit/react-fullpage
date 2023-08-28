@@ -45,14 +45,39 @@ export default ExampleComponent;
 
 ### FullpageContainer
 
-제작중입니다.
+#### `onBeforeChange`
+
+**type** : (`beforeIndex`: number, `afterIndex`: number) => void
+
+**default** : undefined
+
+Fullpage 전환 시작 시점에 실행하는 Callback 함수 입니다.
+
+#### `onAfterChange`
+
+**type** : (`beforeIndex`: number, `afterIndex`: number) => void
+
+**default** : undefined
+
+Fullpage 전환 끝 시점에 실행하는 Callback 함수 입니다.
 
 ### FullpageSection
 
-| name         | required | type    | default | description                                                       |
-| ------------ | -------- | ------- | ------- | ----------------------------------------------------------------- |
-| name         | false    | string  | ''      | 렌더링 시 url의 hash(#)와 일치하는 name 섹션으로 이동합니다.      |
-| isAutoHeight | false    | boolean | false   | true일 때 height 값이 auto 가 됩니다. (주로 Footer에 사용합니다.) |
+#### `name`
+
+**type** : string
+
+**default** : ''
+
+렌더링 시 url의 hash(#)와 일치하는 name 섹션으로 이동합니다. (렌더링 후 hash는 url에서 사라집니다.)
+
+#### `isAutoHeight`
+
+**type** : boolean
+
+**default** : false
+
+true일 때 height 값이 auto 가 됩니다. (주로 Footer에 사용합니다.)
 
 ## License
 

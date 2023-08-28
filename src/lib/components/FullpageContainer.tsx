@@ -1,27 +1,48 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import FullpageWrapper from './FullpageWrapper';
+import usePrevious from '../hooks/usePrevious';
 
 type Props = {
   children: React.ReactNode;
+  onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
+  onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
 };
 
-function FullpageContainer({ children }: Props) {
+function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const prevActiveIndex = usePrevious(activeIndex) as number;
   const [sectionCount, setSectionCount] = useState<number>(0);
+
+  const callbackBeforeChange = useCallback(() => {
+    if (onBeforeChange) {
+      onBeforeChange(prevActiveIndex, activeIndex);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onAfterChange, activeIndex]);
+
+  const callbackAfterChange = useCallback(() => {
+    if (onAfterChange) {
+      onAfterChange(prevActiveIndex, activeIndex);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onAfterChange, activeIndex]);
 
   useEffect(() => {
     if (!isAnimating) return;
 
+    callbackBeforeChange();
+
     setTimeout(() => {
       setIsAnimating(false);
+      callbackAfterChange();
     }, 700);
-  }, [isAnimating]);
+  }, [isAnimating, callbackBeforeChange, callbackAfterChange]);
 
   useEffect(() => {
     let temp = 0;
