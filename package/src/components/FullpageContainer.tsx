@@ -4,13 +4,19 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import FullpageWrapper from './FullpageWrapper';
 import usePrevious from '../hooks/usePrevious';
 
-type Props = {
+interface IProps {
   children: React.ReactNode;
+  controlIndex: number;
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
-};
+}
 
-function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
+function FullpageContainer({
+  children,
+  controlIndex,
+  onBeforeChange,
+  onAfterChange,
+}: IProps) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
@@ -44,6 +50,9 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
     }, 700);
   }, [isAnimating, callbackBeforeChange, callbackAfterChange]);
 
+  /**
+   * activeIndex 변경 시 container의 transformY 값을 계산합니다.
+   */
   useEffect(() => {
     let temp = 0;
 
@@ -66,6 +75,9 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
     }
   }, [container, isLoaded]);
 
+  /**
+   * Container 마운트에 <html> 태그에 Class를 추가하고, 언마운트에 제거합니다.
+   */
   useEffect(() => {
     document.documentElement.classList.add('react-fullpage__html');
     setIsLoaded(true);
@@ -74,6 +86,10 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
       setIsLoaded(false);
     };
   }, []);
+
+  useEffect(() => {
+    setActiveIndex(controlIndex as number);
+  }, [controlIndex]);
 
   return (
     <FullpageWrapper>
