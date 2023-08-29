@@ -7,6 +7,7 @@ import usePrevious from '../hooks/usePrevious';
 interface IProps {
   children: React.ReactNode;
   controlIndex?: number;
+  setControlIndex?: (afterIndex: number) => void;
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
 }
@@ -14,6 +15,7 @@ interface IProps {
 function FullpageContainer({
   children,
   controlIndex,
+  setControlIndex,
   onBeforeChange,
   onAfterChange,
 }: IProps) {
@@ -58,6 +60,10 @@ function FullpageContainer({
   useEffect(() => {
     let temp = 0;
 
+    if (setControlIndex) {
+      setControlIndex(activeIndex);
+    }
+
     for (let i = 0; i <= activeIndex; i += 1) {
       if (container !== null && container.current) {
         const node = container.current.children[i];
@@ -69,7 +75,7 @@ function FullpageContainer({
     }
 
     setTransformY(temp);
-  }, [activeIndex]);
+  }, [activeIndex, setControlIndex]);
 
   useEffect(() => {
     if (container !== null && container.current) {
@@ -99,7 +105,7 @@ function FullpageContainer({
         controlIndex < 0 ||
         controlIndex > sectionCount - 1
       ) {
-        throw new Error('invalid controlIndex');
+        throw new Error('@shinyongjun/react-fullpage : invalid controlIndex');
       } else {
         setActiveIndex(controlIndex);
         setIsAnimating(true);

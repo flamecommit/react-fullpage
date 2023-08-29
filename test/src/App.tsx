@@ -15,6 +15,7 @@ function App() {
     <>
       <FullpageContainer
         controlIndex={controlIndex}
+        setControlIndex={setControlIndex}
         onBeforeChange={(beforeIndex, afterIndex) => {
           console.log("before", beforeIndex, afterIndex);
         }}
@@ -52,6 +53,10 @@ function App() {
         <button type="button" onClick={() => setControlIndex(2)}>
           go to 2
         </button>
+        <button type="button" onClick={() => setControlIndex(5)}>
+          go to 5
+        </button>
+        <div>{controlIndex}</div>
       </div>
     </>
   );
