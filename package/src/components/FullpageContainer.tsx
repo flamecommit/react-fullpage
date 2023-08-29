@@ -12,7 +12,7 @@ type Props = {
 
 function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
   const [transformY, setTransformY] = useState<number>(0);
-  const container = useRef<any>(null);
+  const container = useRef<HTMLDivElement>(null);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const prevActiveIndex = usePrevious(activeIndex) as number;
@@ -48,8 +48,12 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
     let temp = 0;
 
     for (let i = 0; i <= activeIndex; i += 1) {
-      if (container !== null && container.current && i > 0) {
-        temp += container.current.children[i].clientHeight || 0;
+      if (container !== null && container.current) {
+        const node = container.current.children[i];
+
+        if (node && i > 0) {
+          temp += node.clientHeight || 0;
+        }
       }
     }
 
