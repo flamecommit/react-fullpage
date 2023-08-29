@@ -1,12 +1,14 @@
+import React from "react";
+
 function FooterSection() {
   return (
     <footer
       className="footer-section"
       style={{
-        width: '100%',
-        height: '200px',
-        backgroundColor: 'black',
-        color: 'white',
+        width: "100%",
+        height: "200px",
+        backgroundColor: "black",
+        color: "white",
       }}
     >
       Footer Section

@@ -1,0 +1,84 @@
+{
+  "name": "@shinyongjun/react-fullpage",
+  "version": "1.1.10",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "source": "./src/index.tsx",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "description": "MouseWheel 이벤트로 화면을 전환하는 React Fullpage Component 입니다.",
+  "keywords": [
+    "react",
+    "fullpage",
+    "scroll"
+  ],
+  "homepage": "https://github.com/shinyj1991/react-fullpage",
+  "bugs": {
+    "url": "https://github.com/shinyj1991/react-fullpage/issues",
+    "email": "shinyj1991@gmail.com"
+  },
+  "author": {
+    "name": "shinyongjun",
+    "email": "shinyj1991@gmail.com",
+    "url": "https://shinyongjun.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinyj1991/react-fullpage.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && npm run build:esm & npm run build:cjs & npm run copy-styles",
+    "build:esm": "tsc --project tsconfig.json --outDir dist/esm --module esnext",
+    "build:cjs": "tsc --project tsconfig.json --outDir dist/cjs --module commonjs",
+    "watch": "npm run clean && npm run copy-styles & npm run watch:esm",
+    "watch:esm": "tsc --project tsconfig.json --outDir dist/esm --module esnext --watch",
+    "watch:cjs": "tsc --project tsconfig.json --outDir dist/cjs --module commonjs --watch",
+    "clean": "rm -rf dist",
+    "copy-styles": "cpy \"src/**/*.css\" dist"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "cpy-cli": "^5.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
+}

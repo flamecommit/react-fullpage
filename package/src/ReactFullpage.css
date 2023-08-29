@@ -1,0 +1,89 @@
+.react-fullpage__section {
+  overflow-x: hidden;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+.react-fullpage__section::-webkit-scrollbar {
+  display: none;
+}
+.react-fullpage__contents {
+  display: flex;
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.react-fullpage__wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.react-fullpage__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 700ms;
+}
+html {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:has(.react-fullpage__wrapper) {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.react-fullpage__scrollbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 8px;
+}
+.react-fullpage__scrollbar__sticker {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+.react-fullpage__scrollbar__container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.react-fullpage__scrollbar__handler {
+  border: none;
+  border-radius: 4px;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+  position: absolute;
+  padding: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: default;
+}
+.react-fullpage__scrollbar__handler.is-pressed {
+  background: rgba(0, 0, 0, 0.6);
+}

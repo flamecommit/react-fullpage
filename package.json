@@ -1,78 +1,19 @@
 {
-  "name": "@shinyongjun/react-fullpage",
-  "version": "1.1.10",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "description": "MouseWheel 이벤트로 화면을 전환하는 React Fullpage Component 입니다.",
-  "keywords": [
-    "react",
-    "fullpage",
-    "scroll"
-  ],
-  "homepage": "https://github.com/shinyj1991/react-fullpage",
-  "bugs": {
-    "url": "https://github.com/shinyj1991/react-fullpage/issues",
-    "email": "shinyj1991@gmail.com"
-  },
-  "author": {
-    "name": "Yongjun Shin",
-    "email": "shinyj1991@gmail.com",
-    "url": "https://shinyongjun.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shinyj1991/react-fullpage.git"
-  },
-  "files": [
-    "dist"
-  ],
-  "license": "MIT",
+  "name": "@shinyongjun/react-fullpage-monorepo",
+  "version": "0.0.1",
+  "description": "npm package monorepo",
+  "main": "index.js",
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "rm -rf dist && mkdir dist && yarn build-js && yarn build-types",
-    "build-js": "babel ./src/lib -d ./dist --extensions .js,.ts,.tsx --config-file ./babel.config.json",
-    "build-types": "tsc --project tsconfig.prod.json"
+    "build": "npm run build -w package",
+    "watch": "npm run watch -w package",
+    "dev": "npm run start -w test",
+    "link": "npm link -w package && npm link @shinyongjun/react-fullpage -w test"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.22.10",
-    "@babel/preset-react": "^7.22.5",
-    "@types/jest": "^29.5.4",
-    "@types/node": "^20.5.6",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "prettier": "^3.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "styled-components": "^6.0.7",
-    "typescript": "^5.2.2"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "styled-components": "^6.0.0"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  }
+  "author": "shinyongjun",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "package",
+    "test"
+  ]
 }

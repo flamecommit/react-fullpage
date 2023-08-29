@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import FullpageWrapper from './FullpageWrapper';
 import usePrevious from '../hooks/usePrevious';
 
@@ -13,7 +12,7 @@ type Props = {
 
 function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
   const [transformY, setTransformY] = useState<number>(0);
-  const container = useRef<HTMLDivElement>(null);
+  const container = useRef<any>(null);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const prevActiveIndex = usePrevious(activeIndex) as number;
@@ -64,8 +63,11 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
 
   return (
     <FullpageWrapper>
-      <StyledFullpageContainer
-        $transformY={transformY}
+      <div
+        className="react-fullpage__container"
+        style={{
+          transform: `translate3d(0px, -${transformY}px, 0px)`,
+        }}
         ref={container}
         data-is-animating={isAnimating}
       >
@@ -80,19 +82,9 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
             setActiveIndex,
           });
         })}
-      </StyledFullpageContainer>
+      </div>
     </FullpageWrapper>
   );
 }
-
-const StyledFullpageContainer = styled.div<{
-  $transformY: number;
-}>`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 700ms;
-  transform: ${(props) => `translate3d(0px, -${props.$transformY}px, 0px)`};
-`;
 
 export default FullpageContainer;

@@ -1,6 +1,5 @@
 'use client';
 
-import styled from 'styled-components';
 import React, { useEffect, useRef, useState } from 'react';
 import useElementScroll from '../hooks/useElementScroll';
 import useSwipe, { SwipeDirection } from '../hooks/useSwipe';
@@ -107,11 +106,14 @@ function FullpageSection({
   });
 
   return (
-    <StyledFullpageSection
+    <div
       ref={section}
       onWheel={handelWheel}
-      $isAnimating={isAnimating}
-      $isAutoHeight={isAutoHeight}
+      className="react-fullpage__section"
+      style={{
+        overflowY: `${isAnimating ? 'hidden' : 'auto'}`,
+        height: `${isAutoHeight ? 'auto' : '100%'}`,
+      }}
     >
       <FullpageContents>{children}</FullpageContents>
       {hasScrollbar && !isAnimating && (
@@ -121,23 +123,8 @@ function FullpageSection({
           section={section}
         />
       )}
-    </StyledFullpageSection>
+    </div>
   );
 }
-
-const StyledFullpageSection = styled.div<{
-  $isAnimating: boolean;
-  $isAutoHeight: boolean;
-}>`
-  overflow-x: hidden;
-  overflow-y: ${(props) => (props.$isAnimating ? 'hidden' : 'auto')};
-  position: relative;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  height: ${(props) => (props.$isAutoHeight ? 'auto' : '100%')};
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
 
 export default FullpageSection;
