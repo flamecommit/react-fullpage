@@ -19,10 +19,10 @@ function FullpageContainer({
 }: IProps) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const prevActiveIndex = usePrevious(activeIndex) as number;
-  const [sectionCount, setSectionCount] = useState<number>(0);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false); // true 시 animation 진행 중
+  const [activeIndex, setActiveIndex] = useState<number>(0); // 현재 활성화 된 Section Index
+  const prevActiveIndex = usePrevious(activeIndex) as number; // 직전 activeIndex 값
+  const [sectionCount, setSectionCount] = useState<number>(0); // section 총 갯수
   const [isLoaded, setIsLoaded] = useState(false);
 
   const callbackBeforeChange = useCallback(() => {
@@ -87,9 +87,20 @@ function FullpageContainer({
     };
   }, []);
 
+  /**
+   * Component 외부에서 controlIndex를 사용하여 activeIndex를 조작합니다.
+   */
   useEffect(() => {
-    setActiveIndex(controlIndex as number);
-  }, [controlIndex]);
+    try {
+      if (controlIndex < 0 || controlIndex > sectionCount - 1) {
+        throw new Error('invalid controlIndex');
+      } else {
+        setActiveIndex(controlIndex);
+      }
+    } catch (err: any) {
+      console.log(err.message);
+    }
+  }, [controlIndex, sectionCount]);
 
   return (
     <FullpageWrapper>
