@@ -6,7 +6,7 @@ import usePrevious from '../hooks/usePrevious';
 
 interface IProps {
   children: React.ReactNode;
-  controlIndex: number;
+  controlIndex?: number;
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
 }
@@ -92,7 +92,11 @@ function FullpageContainer({
    */
   useEffect(() => {
     try {
-      if (controlIndex < 0 || controlIndex > sectionCount - 1) {
+      if (
+        !controlIndex ||
+        controlIndex < 0 ||
+        controlIndex > sectionCount - 1
+      ) {
         throw new Error('invalid controlIndex');
       } else {
         setActiveIndex(controlIndex);
