@@ -56,9 +56,7 @@ function FullpageSection({
         setScrollDelay(false);
       }, 300);
 
-      return () => {
-        clearTimeout(timer);
-      };
+      return () => clearTimeout(timer);
     }
   }, [scrollDelay]);
 

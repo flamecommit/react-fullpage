@@ -44,10 +44,12 @@ function FullpageContainer({
 
     callbackBeforeChange();
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsAnimating(false);
       callbackAfterChange();
     }, 700);
+
+    return () => clearTimeout(timer);
   }, [isAnimating, callbackBeforeChange, callbackAfterChange]);
 
   /**
@@ -100,6 +102,7 @@ function FullpageContainer({
         throw new Error('invalid controlIndex');
       } else {
         setActiveIndex(controlIndex);
+        setIsAnimating(true);
       }
     } catch (err: any) {
       console.log(err.message);
