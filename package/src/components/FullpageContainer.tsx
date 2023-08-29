@@ -93,7 +93,7 @@ function FullpageContainer({
   useEffect(() => {
     try {
       if (
-        !controlIndex ||
+        typeof controlIndex !== 'number' ||
         controlIndex < 0 ||
         controlIndex > sectionCount - 1
       ) {
