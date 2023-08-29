@@ -17,6 +17,7 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const prevActiveIndex = usePrevious(activeIndex) as number;
   const [sectionCount, setSectionCount] = useState<number>(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const callbackBeforeChange = useCallback(() => {
     if (onBeforeChange) {
@@ -59,7 +60,16 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
     if (container !== null && container.current) {
       setSectionCount(container.current.childElementCount);
     }
-  }, [container]);
+  }, [container, isLoaded]);
+
+  useEffect(() => {
+    document.documentElement.classList.add('react-fullpage__html');
+    setIsLoaded(true);
+    return () => {
+      document.documentElement.classList.remove('react-fullpage__html');
+      setIsLoaded(false);
+    };
+  }, []);
 
   return (
     <FullpageWrapper>
@@ -71,17 +81,18 @@ function FullpageContainer({ children, onBeforeChange, onAfterChange }: Props) {
         ref={container}
         data-is-animating={isAnimating}
       >
-        {React.Children.map(children, (child, index) => {
-          const item = child as React.ReactElement;
-          return React.cloneElement(item, {
-            index,
-            activeIndex,
-            sectionCount,
-            isAnimating,
-            setIsAnimating,
-            setActiveIndex,
-          });
-        })}
+        {isLoaded &&
+          React.Children.map(children, (child, index) => {
+            const item = child as React.ReactElement;
+            return React.cloneElement(item, {
+              index,
+              activeIndex,
+              sectionCount,
+              isAnimating,
+              setIsAnimating,
+              setActiveIndex,
+            });
+          })}
       </div>
     </FullpageWrapper>
   );

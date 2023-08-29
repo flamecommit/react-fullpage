@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../ReactFullpage.css';
 
 type Props = {
   children: React.ReactNode;

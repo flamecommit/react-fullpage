@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.1.10",
+  "version": "1.1.13",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "source": "./src/index.tsx",
@@ -39,7 +39,7 @@
     "build": "npm run clean && npm run build:esm & npm run build:cjs & npm run copy-styles",
     "build:esm": "tsc --project tsconfig.json --outDir dist/esm --module esnext",
     "build:cjs": "tsc --project tsconfig.json --outDir dist/cjs --module commonjs",
-    "watch": "npm run clean && npm run copy-styles & npm run watch:esm",
+    "watch": "npm run watch:esm & npm run watch:cjs",
     "watch:esm": "tsc --project tsconfig.json --outDir dist/esm --module esnext --watch",
     "watch:cjs": "tsc --project tsconfig.json --outDir dist/cjs --module commonjs --watch",
     "clean": "rm -rf dist",

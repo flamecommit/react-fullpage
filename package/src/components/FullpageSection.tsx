@@ -13,6 +13,7 @@ type Props = {
   activeIndex?: number;
   sectionCount?: number;
   isAnimating?: boolean;
+  isLoaded?: boolean;
   setIsAnimating?: (payload: boolean) => void;
   setActiveIndex?: (payload: number) => void;
   isAutoHeight?: boolean;
