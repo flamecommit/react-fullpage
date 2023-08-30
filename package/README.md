@@ -22,6 +22,7 @@ yarn add @shinyongjun/react-fullpage
 There are two types of components: `FullpageContainer` and `FullpageSection`.
 
 ```tsx
+import { useState } from 'react';
 import {
   FullpageContainer,
   FullpageSection,
