@@ -1,6 +1,7 @@
 'use client';
 
-import React, { RefObject, useEffect, useRef, useState } from 'react';
+import * as React from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import useWindowSize from '../hooks/useWindowSize';
 import useMousePressed from '../hooks/useMousePressed';
 import useMousePosition from '../hooks/useMousePosition';

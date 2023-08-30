@@ -64,11 +64,14 @@
     ]
   },
   "devDependencies": {
+    "@shinyongjun/eslint-config": "^0.0.2",
     "@types/node": "^20.5.7",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "concurrently": "^8.2.1",
     "cpy-cli": "^5.0.0",
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.2.2"

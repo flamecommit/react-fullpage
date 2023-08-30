@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useElementScroll from '../hooks/useElementScroll';
 import useSwipe, { SwipeDirection } from '../hooks/useSwipe';
 import FullpageContents from './FullpageContents';
@@ -26,7 +27,7 @@ function FullpageSection({
   activeIndex,
   sectionCount,
   isAnimating = false,
-  setActiveIndex = () => {},
+  setActiveIndex,
   setIsAnimating,
   name = '',
   index = 0,
@@ -40,7 +41,9 @@ function FullpageSection({
   useEffect(() => {
     if (hashValue) {
       if (hashValue === name) {
-        setActiveIndex(index);
+        if (setActiveIndex !== undefined) {
+          setActiveIndex(index);
+        }
         updateHash();
       }
     }
