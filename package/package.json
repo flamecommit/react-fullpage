@@ -5,6 +5,9 @@
   "module": "./dist/esm/index.js",
   "source": "./src/index.tsx",
   "types": "./dist/cjs/index.d.ts",
+  "sideEffects": [
+    "*.css"
+  ],
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -45,12 +48,6 @@
     "clean": "rm -rf dist",
     "copy-styles": "cpy \"src/**/*.css\" dist"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -78,11 +75,5 @@
   },
   "peerDependencies": {
     "react": "^18.0.0"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
   }
 }
