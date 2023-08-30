@@ -8,8 +8,6 @@ This is a Fullpage library that operates in React.
 
 [Issues](https://github.com/shinyj1991/react-fullpage/issues)
 
-[NPM](https://www.npmjs.com/package/@shinyongjun/react-fullpage)
-
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fshinyj1991%2Freact-fullpage&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 ## Installation and usage
