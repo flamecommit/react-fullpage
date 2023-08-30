@@ -7,15 +7,15 @@ import usePrevious from '../hooks/usePrevious';
 
 interface IProps {
   children: React.ReactNode;
-  activeIndex?: number;
-  setActiveIndex?: (afterIndex: number) => void;
+  activeIndex: number;
+  setActiveIndex: (afterIndex: number) => void;
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
 }
 
 function FullpageContainer({
   children,
-  activeIndex = 0,
+  activeIndex,
   setActiveIndex,
   onBeforeChange,
   onAfterChange,
@@ -60,6 +60,10 @@ function FullpageContainer({
   useEffect(() => {
     let temp = 0;
 
+    if (activeIndex < 0) setActiveIndex(0);
+    if (sectionCount && activeIndex > sectionCount - 1)
+      setActiveIndex(sectionCount - 1);
+
     for (let i = 0; i <= activeIndex; i += 1) {
       if (container !== null && container.current) {
         const node = container.current.children[i];
@@ -71,7 +75,7 @@ function FullpageContainer({
     }
 
     setTransformY(temp);
-  }, [activeIndex]);
+  }, [activeIndex, setActiveIndex, container, isLoaded, sectionCount]);
 
   useEffect(() => {
     if (container !== null && container.current) {
