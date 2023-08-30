@@ -8,7 +8,7 @@ import FullpageContents from './FullpageContents';
 import FullpageScrollbar from './FullpageScrollbar';
 import useHash from '../hooks/useHash';
 
-type Props = {
+interface IProps {
   index?: number;
   children?: React.ReactNode;
   activeIndex?: number;
@@ -19,7 +19,7 @@ type Props = {
   setActiveIndex?: (payload: number) => void;
   isAutoHeight?: boolean;
   name?: string;
-};
+}
 
 function FullpageSection({
   children,
@@ -31,7 +31,7 @@ function FullpageSection({
   setIsAnimating,
   name = '',
   index = 0,
-}: Props) {
+}: IProps) {
   const section = useRef<HTMLDivElement>(null);
   const { isAtTop, isAtBottom, hasScrollbar, scrollHeight, scrollY } =
     useElementScroll(section);

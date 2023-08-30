@@ -1,11 +1,11 @@
 import * as React from 'react';
 import '../../ReactFullpage.css';
 
-type Props = {
+interface IProps {
   children: React.ReactNode;
-};
+}
 
-const FullpageWrapper = ({ children }: Props) => {
+const FullpageWrapper = ({ children }: IProps) => {
   return <div className="react-fullpage__wrapper">{children}</div>;
 };
 

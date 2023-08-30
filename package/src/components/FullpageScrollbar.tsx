@@ -6,13 +6,13 @@ import useWindowSize from '../hooks/useWindowSize';
 import useMousePressed from '../hooks/useMousePressed';
 import useMousePosition from '../hooks/useMousePosition';
 
-type TProps = {
+interface IProps {
   scrollHeight: number;
   scrollY: number;
   section: RefObject<HTMLDivElement>;
-};
+}
 
-function FullpageScrollbar({ scrollHeight, scrollY, section }: TProps) {
+function FullpageScrollbar({ scrollHeight, scrollY, section }: IProps) {
   const handler = useRef<HTMLButtonElement>(null);
   const { y: mouseY } = useMousePosition();
   const isMousePressed = useMousePressed(handler);
