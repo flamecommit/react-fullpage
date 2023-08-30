@@ -7,23 +7,22 @@ import usePrevious from '../hooks/usePrevious';
 
 interface IProps {
   children: React.ReactNode;
-  controlIndex?: number;
-  setControlIndex?: (afterIndex: number) => void;
+  activeIndex?: number;
+  setActiveIndex?: (afterIndex: number) => void;
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
 }
 
 function FullpageContainer({
   children,
-  controlIndex,
-  setControlIndex,
+  activeIndex = 0,
+  setActiveIndex,
   onBeforeChange,
   onAfterChange,
 }: IProps) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
   const [isAnimating, setIsAnimating] = useState<boolean>(false); // true 시 animation 진행 중
-  const [activeIndex, setActiveIndex] = useState<number>(0); // 현재 활성화 된 Section Index
   const prevActiveIndex = usePrevious(activeIndex) as number; // 직전 activeIndex 값
   const [sectionCount, setSectionCount] = useState<number>(0); // section 총 갯수
   const [isLoaded, setIsLoaded] = useState(false);
@@ -33,7 +32,7 @@ function FullpageContainer({
       onBeforeChange(prevActiveIndex, activeIndex);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onAfterChange, activeIndex]);
+  }, [onBeforeChange, activeIndex]);
 
   const callbackAfterChange = useCallback(() => {
     if (onAfterChange) {
@@ -61,10 +60,6 @@ function FullpageContainer({
   useEffect(() => {
     let temp = 0;
 
-    if (setControlIndex) {
-      setControlIndex(activeIndex);
-    }
-
     for (let i = 0; i <= activeIndex; i += 1) {
       if (container !== null && container.current) {
         const node = container.current.children[i];
@@ -76,7 +71,7 @@ function FullpageContainer({
     }
 
     setTransformY(temp);
-  }, [activeIndex, setControlIndex]);
+  }, [activeIndex]);
 
   useEffect(() => {
     if (container !== null && container.current) {
@@ -95,26 +90,6 @@ function FullpageContainer({
       setIsLoaded(false);
     };
   }, []);
-
-  /**
-   * Component 외부에서 controlIndex를 사용하여 activeIndex를 조작합니다.
-   */
-  useEffect(() => {
-    try {
-      if (
-        typeof controlIndex !== 'number' ||
-        controlIndex < 0 ||
-        controlIndex > sectionCount - 1
-      ) {
-        throw new Error('@shinyongjun/react-fullpage : invalid controlIndex');
-      } else {
-        setActiveIndex(controlIndex);
-        setIsAnimating(true);
-      }
-    } catch (err: any) {
-      console.log(err.message);
-    }
-  }, [controlIndex, sectionCount]);
 
   return (
     <FullpageWrapper>

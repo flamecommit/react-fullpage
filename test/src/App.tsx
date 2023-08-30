@@ -9,13 +9,13 @@ import SecondSection from "./components/SecondSection";
 import ThirdSection from "./components/ThirdSection";
 
 function App() {
-  const [controlIndex, setControlIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
     <>
       <FullpageContainer
-        controlIndex={controlIndex}
-        setControlIndex={setControlIndex}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
         onBeforeChange={(beforeIndex, afterIndex) => {
           console.log("before", beforeIndex, afterIndex);
         }}
@@ -44,19 +44,19 @@ function App() {
           right: "50px",
         }}
       >
-        <button type="button" onClick={() => setControlIndex(0)}>
+        <button type="button" onClick={() => setActiveIndex(0)}>
           go to 0
         </button>
-        <button type="button" onClick={() => setControlIndex(1)}>
+        <button type="button" onClick={() => setActiveIndex(1)}>
           go to 1
         </button>
-        <button type="button" onClick={() => setControlIndex(2)}>
+        <button type="button" onClick={() => setActiveIndex(2)}>
           go to 2
         </button>
-        <button type="button" onClick={() => setControlIndex(5)}>
+        <button type="button" onClick={() => setActiveIndex(5)}>
           go to 5
         </button>
-        <div>{controlIndex}</div>
+        <div>{activeIndex}</div>
       </div>
     </>
   );
