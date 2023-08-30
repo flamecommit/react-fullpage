@@ -21,6 +21,8 @@ yarn add @shinyongjun/react-fullpage
 
 There are two types of components: `FullpageContainer` and `FullpageSection`.
 
+`activeIndex` and `setActiveIndex` are the required Props of the `FullpageContainer` component.
+
 ```tsx
 import { useState } from 'react';
 import {
