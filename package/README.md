@@ -1,6 +1,10 @@
 # React Fullpage
 
-`React-fullpage` is a React Component library inspired by [fullpage.js](https://github.com/alvarotrigo/fullPage.js). It is characterized by its light size because it contains only key functions. [Demo](https://shinyongjun.com/package/react-fullpage)
+This is a Fullpage library that operates in React.
+
+[Demo](https://shinyongjun.com/package/react-fullpage)
+
+[Document](https://shinyongjun.com/package/react-fullpage/document)
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fshinyj1991%2Freact-fullpage&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
