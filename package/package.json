@@ -14,7 +14,7 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "description": "MouseWheel 이벤트로 화면을 전환하는 React Fullpage Component 입니다.",
+  "description": "This is a Fullpage library that operates in React.",
   "keywords": [
     "react",
     "fullpage",
