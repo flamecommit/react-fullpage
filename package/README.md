@@ -6,6 +6,10 @@ This is a Fullpage library that operates in React.
 
 [Document](https://shinyongjun.com/package/react-fullpage/document)
 
+[Issues](https://github.com/shinyj1991/react-fullpage/issues)
+
+[NPM](https://www.npmjs.com/package/@shinyongjun/react-fullpage)
+
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fshinyj1991%2Freact-fullpage&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 ## Installation and usage
@@ -24,8 +28,13 @@ import {
 } from '@shinyongjun/react-fullpage';
 
 function ExampleComponent() {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
   return (
-    <FullpageContainer>
+    <FullpageContainer
+      activeIndex={activeIndex}
+      setActiveIndex={setActiveIndex}
+    >
       <FullpageSection>
         <div>Section 1</div>
       </FullpageSection>
