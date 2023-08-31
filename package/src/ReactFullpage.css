@@ -52,7 +52,7 @@ html.react-fullpage__html *:has(.react-fullpage__wrapper) {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 700ms;
+  transition-property: transform;
 }
 .react-fullpage__scrollbar {
   position: absolute;

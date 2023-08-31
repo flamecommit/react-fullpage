@@ -7,8 +7,9 @@ import usePrevious from '../hooks/usePrevious';
 
 interface IProps {
   children: React.ReactNode;
-  activeIndex: number;
+  activeIndex: number; // 현재 활성화 Section의 Index
   setActiveIndex: (afterIndex: number) => void;
+  transitionDuration?: number; // Section 전환 속도
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
 }
@@ -16,6 +17,7 @@ interface IProps {
 function FullpageContainer({
   children,
   activeIndex,
+  transitionDuration = 700,
   setActiveIndex,
   onBeforeChange,
   onAfterChange,
@@ -101,6 +103,7 @@ function FullpageContainer({
         className="react-fullpage__container"
         style={{
           transform: `translate3d(0px, -${transformY}px, 0px)`,
+          transitionDuration: `${transitionDuration}ms`,
         }}
         ref={container}
         data-is-animating={isAnimating}

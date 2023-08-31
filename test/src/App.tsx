@@ -14,6 +14,7 @@ function App() {
   return (
     <>
       <FullpageContainer
+        transitionDuration={700}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
         onBeforeChange={(beforeIndex, afterIndex) => {
