@@ -23,6 +23,9 @@ function App() {
         onAfterChange={(beforeIndex, afterIndex) => {
           console.log("after", beforeIndex, afterIndex);
         }}
+        onAfterLoad={(container) => {
+          console.log("afterLoad", container);
+        }}
       >
         <FullpageSection name="first">
           <FirstSection />

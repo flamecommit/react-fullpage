@@ -12,6 +12,7 @@ interface IProps {
   transitionDuration?: number; // Section 전환 속도
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
+  onAfterLoad?: (container: React.RefObject<HTMLDivElement>) => void;
 }
 
 function FullpageContainer({
@@ -21,6 +22,7 @@ function FullpageContainer({
   setActiveIndex,
   onBeforeChange,
   onAfterChange,
+  onAfterLoad,
 }: IProps) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
@@ -84,6 +86,12 @@ function FullpageContainer({
       setSectionCount(container.current.childElementCount);
     }
   }, [container, isLoaded]);
+
+  useEffect(() => {
+    if (isLoaded && onAfterLoad) {
+      onAfterLoad(container);
+    }
+  }, [isLoaded, onAfterLoad]);
 
   /**
    * Container 마운트에 <html> 태그에 Class를 추가하고, 언마운트에 제거합니다.
