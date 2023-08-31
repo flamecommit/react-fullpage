@@ -65,17 +65,17 @@ function FullpageScrollbar({ scrollHeight, scrollY, section }: IProps) {
       style={{ height: `${scrollHeight}px` }}
     >
       <div
-        className="react-fullpage__scrollbar__sticker"
+        className="react-fullpage__scrollbar-sticker"
         style={{ height: `${windowHeight}px` }}
       >
         <div
-          className="react-fullpage__scrollbar__container"
+          className="react-fullpage__scrollbar-container"
           style={{ height: `${windowHeight}px` }}
         >
           <button
             type="button"
             ref={handler}
-            className={`react-fullpage__scrollbar__handler ${
+            className={`react-fullpage__scrollbar-handler ${
               isMousePressed && 'is-pressed'
             }`}
             style={{ top: `${handlerTop}%`, height: `${handlerHeight}%` }}
