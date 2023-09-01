@@ -14,6 +14,7 @@ function App() {
   return (
     <>
       <FullpageContainer
+        transitionDuration={700}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
         onBeforeChange={(beforeIndex, afterIndex) => {
@@ -21,6 +22,9 @@ function App() {
         }}
         onAfterChange={(beforeIndex, afterIndex) => {
           console.log("after", beforeIndex, afterIndex);
+        }}
+        onAfterLoad={(container) => {
+          console.log("afterLoad", container);
         }}
       >
         <FullpageSection name="first">

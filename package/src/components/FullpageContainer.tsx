@@ -7,18 +7,22 @@ import usePrevious from '../hooks/usePrevious';
 
 interface IProps {
   children: React.ReactNode;
-  activeIndex: number;
+  activeIndex: number; // 현재 활성화 Section의 Index
   setActiveIndex: (afterIndex: number) => void;
+  transitionDuration?: number; // Section 전환 속도
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
+  onAfterLoad?: (container: React.RefObject<HTMLDivElement>) => void;
 }
 
 function FullpageContainer({
   children,
   activeIndex,
+  transitionDuration = 700,
   setActiveIndex,
   onBeforeChange,
   onAfterChange,
+  onAfterLoad,
 }: IProps) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
@@ -83,6 +87,12 @@ function FullpageContainer({
     }
   }, [container, isLoaded]);
 
+  useEffect(() => {
+    if (isLoaded && onAfterLoad) {
+      onAfterLoad(container);
+    }
+  }, [isLoaded, onAfterLoad]);
+
   /**
    * Container 마운트에 <html> 태그에 Class를 추가하고, 언마운트에 제거합니다.
    */
@@ -101,6 +111,7 @@ function FullpageContainer({
         className="react-fullpage__container"
         style={{
           transform: `translate3d(0px, -${transformY}px, 0px)`,
+          transitionDuration: `${transitionDuration}ms`,
         }}
         ref={container}
         data-is-animating={isAnimating}

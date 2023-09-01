@@ -52,7 +52,7 @@ html.react-fullpage__html *:has(.react-fullpage__wrapper) {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 700ms;
+  transition-property: transform;
 }
 .react-fullpage__scrollbar {
   position: absolute;
@@ -61,17 +61,17 @@ html.react-fullpage__html *:has(.react-fullpage__wrapper) {
   z-index: 10;
   width: 8px;
 }
-.react-fullpage__scrollbar__sticker {
+.react-fullpage__scrollbar-sticker {
   position: sticky;
   top: 0;
   width: 100%;
 }
-.react-fullpage__scrollbar__container {
+.react-fullpage__scrollbar-container {
   overflow: hidden;
   position: relative;
   width: 100%;
 }
-.react-fullpage__scrollbar__handler {
+.react-fullpage__scrollbar-handler {
   border: none;
   border-radius: 4px;
   background: none;
@@ -84,6 +84,6 @@ html.react-fullpage__html *:has(.react-fullpage__wrapper) {
   background: rgba(0, 0, 0, 0.3);
   cursor: default;
 }
-.react-fullpage__scrollbar__handler.is-pressed {
+.react-fullpage__scrollbar-handler.is-pressed {
   background: rgba(0, 0, 0, 0.6);
 }
