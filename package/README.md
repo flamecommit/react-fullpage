@@ -2,7 +2,7 @@
 
 This is a Fullpage library that operates in React.
 
-![GIF](./public/readme-1.gif)
+![GIF](https://github.com/shinyj1991/react-fullpage/raw/main/package/public/readme-1.gif)
 
 [Demo](https://shinyongjun.com/react-fullpage/example)
 
