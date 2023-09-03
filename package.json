@@ -1,8 +1,9 @@
 {
   "name": "@shinyongjun/react-fullpage-monorepo",
   "version": "0.0.1",
-  "description": "npm package monorepo",
-  "main": "index.js",
+  "author": "shinyongjun",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "build": "npm run build -w package",
     "watch": "npm run watch -w package",
@@ -10,9 +11,6 @@
     "link": "npm link -w package && npm link @shinyongjun/react-fullpage -w test",
     "publish": "npm publish --access public -w package"
   },
-  "author": "shinyongjun",
-  "license": "MIT",
-  "private": true,
   "workspaces": [
     "package",
     "test"
