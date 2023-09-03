@@ -13,16 +13,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3001 && react-scripts start --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -35,5 +29,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@shinyongjun/eslint-config": "^0.0.3"
   }
 }

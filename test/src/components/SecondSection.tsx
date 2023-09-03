@@ -1,10 +1,10 @@
-import React from "react";
+import * as React from 'react';
 
 function SecondSection() {
   return (
     <div
       className="second-section"
-      style={{ width: "100%", backgroundColor: "orange" }}
+      style={{ width: '100%', backgroundColor: 'orange' }}
     >
       <div>Second Section</div>
       <div>Second Section</div>

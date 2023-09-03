@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../../ReactFullpage.css';
+import '../../assets/ReactFullpage.css';
 
 interface IProps {
   children: React.ReactNode;

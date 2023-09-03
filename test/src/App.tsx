@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import * as React from 'react';
+import { useState } from 'react';
 import {
   FullpageContainer,
   FullpageSection,
-} from "@shinyongjun/react-fullpage";
-import FirstSection from "./components/FirstSection";
-import FooterSection from "./components/FooterSection";
-import SecondSection from "./components/SecondSection";
-import ThirdSection from "./components/ThirdSection";
+} from '@shinyongjun/react-fullpage';
+import FirstSection from './components/FirstSection';
+import FooterSection from './components/FooterSection';
+import SecondSection from './components/SecondSection';
+import ThirdSection from './components/ThirdSection';
 
 function App() {
   const [activeIndex, setActiveIndex] = useState<number>(2);
@@ -18,13 +19,13 @@ function App() {
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
         onBeforeChange={(beforeIndex, afterIndex) => {
-          console.log("before", beforeIndex, afterIndex);
+          console.log('before', beforeIndex, afterIndex);
         }}
         onAfterChange={(beforeIndex, afterIndex) => {
-          console.log("after", beforeIndex, afterIndex);
+          console.log('after', beforeIndex, afterIndex);
         }}
         onAfterLoad={(container) => {
-          console.log("afterLoad", container);
+          console.log('afterLoad', container);
         }}
       >
         <FullpageSection name="first">
@@ -43,9 +44,9 @@ function App() {
       <div
         className="controller"
         style={{
-          position: "fixed",
-          top: "50px",
-          right: "50px",
+          position: 'fixed',
+          top: '50px',
+          right: '50px',
         }}
       >
         <button type="button" onClick={() => setActiveIndex(0)}>

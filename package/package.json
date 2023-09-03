@@ -39,14 +39,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "concurrently \"npm run clean\" \"npm run copy-styles\" \"npm run build:esm\" \"npm run build:cjs\"",
-    "build:esm": "tsc --project tsconfig.json --outDir dist/esm --module esnext",
-    "build:cjs": "tsc --project tsconfig.json --outDir dist/cjs --module commonjs",
-    "watch": "concurrently \"npm run clean\" \"npm run copy-styles\" \"npm run watch:esm\" \"npm run watch:cjs\"",
+    "watch": "concurrently \"npm run clean\" \"npm run copy-assets\" \"npm run watch:esm\" \"npm run watch:cjs\" \"npm run copy-styles\"",
     "watch:esm": "tsc --project tsconfig.json --outDir dist/esm --module esnext --watch",
     "watch:cjs": "tsc --project tsconfig.json --outDir dist/cjs --module commonjs --watch",
     "clean": "rm -rf dist",
-    "copy-styles": "cpy \"src/**/*.css\" dist"
+    "copy-assets": "cpy \"src/assets/**/*.*\" dist/assets",
+    "copy-styles": "node ./devops/copyStyles.js"
   },
   "browserslist": {
     "production": [
@@ -61,13 +59,15 @@
     ]
   },
   "devDependencies": {
-    "@shinyongjun/eslint-config": "^0.0.2",
+    "@shinyongjun/eslint-config": "^0.0.3",
     "@types/node": "^20.5.7",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "chokidar": "^3.5.3",
     "concurrently": "^8.2.1",
     "cpy-cli": "^5.0.0",
     "eslint": "^8.48.0",
+    "fs-extra": "^11.1.1",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
