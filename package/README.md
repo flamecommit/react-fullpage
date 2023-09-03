@@ -2,6 +2,8 @@
 
 This is a Fullpage library that operates in React.
 
+[GIF](./public/readme-1.gif)
+
 [Demo](https://shinyongjun.com/react-fullpage/example)
 
 [Document](https://shinyongjun.com/react-fullpage/document)
