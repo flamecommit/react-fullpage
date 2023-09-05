@@ -37,7 +37,6 @@ const useSwipe = (
     let isSwiping = false;
 
     const handleTouchStart = (event: TouchEvent) => {
-      console.log('touchstart');
       if (!ref.current || !event.touches[0]) return;
 
       startX = event.touches[0].clientX;
@@ -50,7 +49,6 @@ const useSwipe = (
     };
 
     const handleTouchMove = (event: TouchEvent) => {
-      console.log('touchmove');
       if (!isSwiping || !ref.current || !event.touches[0]) return;
 
       endX = event.touches[0].clientX;
