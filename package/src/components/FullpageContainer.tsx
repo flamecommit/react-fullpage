@@ -91,7 +91,7 @@ function FullpageContainer({
     if (isLoaded && onAfterLoad) {
       onAfterLoad(container);
     }
-  }, [isLoaded, onAfterLoad]);
+  }, [isLoaded]);
 
   /**
    * Container 마운트에 <html> 태그에 Class를 추가하고, 언마운트에 제거합니다.

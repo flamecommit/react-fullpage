@@ -3,6 +3,7 @@
 ### Fix
 
 - activate the passive option of touchstart, touchmove.
+- multiple "onAfterLoad" runs.
 
 ## 1.3.0
 
