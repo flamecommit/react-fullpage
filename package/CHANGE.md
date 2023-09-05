@@ -1,3 +1,9 @@
+## 1.3.3
+
+### Fix
+
+- activate the passive option of touchstart, touchmove.
+
 ## 1.3.0
 
 ### What's New?
