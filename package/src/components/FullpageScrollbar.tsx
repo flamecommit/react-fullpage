@@ -25,7 +25,7 @@ function FullpageScrollbar({ scrollHeight, scrollY, section }: IProps) {
   useEffect(() => {
     setHandlerTop(
       (100 - (windowHeight / scrollHeight) * 100) *
-        (scrollY / (scrollHeight - windowHeight)),
+        (scrollY / (scrollHeight - windowHeight))
     );
     setHandlerHeight((windowHeight / scrollHeight) * 100);
   }, [windowHeight, scrollHeight, scrollY]);
