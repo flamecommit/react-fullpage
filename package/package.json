@@ -12,7 +12,8 @@
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
-    }
+    },
+    "./css": "./dist/assets/ReactFullpage.css"
   },
   "description": "This is a Fullpage library that operates in React.",
   "keywords": [

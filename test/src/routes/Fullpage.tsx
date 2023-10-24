@@ -8,6 +8,7 @@ import FirstSection from '../components/FirstSection';
 import FooterSection from '../components/FooterSection';
 import SecondSection from '../components/SecondSection';
 import ThirdSection from '../components/ThirdSection';
+import '@shinyongjun/react-fullpage/css';
 
 function Fullpage() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
