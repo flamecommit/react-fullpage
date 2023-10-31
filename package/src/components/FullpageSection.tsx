@@ -73,14 +73,18 @@ function FullpageSection({
   const moveToNextSection = () => {
     if (activeIndex === undefined || sectionCount === undefined) return;
     if (activeIndex >= sectionCount - 1) return;
-    if (hasScrollbar && !isAtBottom) return;
+    if (activeIndex === index) {
+      if (hasScrollbar && !isAtBottom) return;
+    }
     moveToSection(activeIndex + 1);
   };
 
   const moveToPrevSection = () => {
     if (activeIndex === undefined) return;
     if (activeIndex <= 0) return;
-    if (hasScrollbar && !isAtTop) return;
+    if (activeIndex === index) {
+      if (hasScrollbar && !isAtTop) return;
+    }
     moveToSection(activeIndex - 1);
   };
 
@@ -111,9 +115,10 @@ function FullpageSection({
     <div
       ref={section}
       onWheel={handelWheel}
-      className="react-fullpage__section"
+      className={`react-fullpage__section`}
+      data-active={activeIndex === index}
+      data-animating={isAnimating}
       style={{
-        overflowY: `${isAnimating ? 'hidden' : 'auto'}`,
         height: `${isAutoHeight ? 'auto' : '100%'}`,
       }}
     >

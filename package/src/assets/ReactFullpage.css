@@ -26,9 +26,16 @@ html.react-fullpage__html *:has(.react-fullpage__wrapper) {
 }
 .react-fullpage__section {
   overflow-x: hidden;
+  overflow-y: hidden;
   position: relative;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+}
+.react-fullpage__section[data-active='true'] {
+  overflow-y: auto;
+}
+.react-fullpage__section[data-animating='true'] {
+  overflow-y: hidden;
 }
 .react-fullpage__section::-webkit-scrollbar {
   display: none;
