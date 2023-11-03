@@ -46,8 +46,6 @@ function FullpageContainer({
   }, [onAfterChange, activeIndex]);
 
   useEffect(() => {
-    if (!isAnimating) return;
-
     callbackBeforeChange();
 
     const timer = setTimeout(() => {
@@ -56,7 +54,7 @@ function FullpageContainer({
     }, 700);
 
     return () => clearTimeout(timer);
-  }, [isAnimating, callbackBeforeChange, callbackAfterChange]);
+  }, [activeIndex, callbackBeforeChange, callbackAfterChange]);
 
   /**
    * activeIndex 변경 시 container의 transformY 값을 계산합니다.
