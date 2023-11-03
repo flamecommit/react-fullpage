@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import FullpageWrapper from './FullpageWrapper';
 import usePrevious from '../hooks/usePrevious';
+import useWindowSize from '../hooks/useWindowSize';
 
 interface IProps {
   children: React.ReactNode;
@@ -30,6 +31,7 @@ function FullpageContainer({
   const prevActiveIndex = usePrevious(activeIndex) as number; // 직전 activeIndex 값
   const [sectionCount, setSectionCount] = useState<number>(0); // section 총 갯수
   const [isLoaded, setIsLoaded] = useState(false);
+  const { height: windowHeight } = useWindowSize();
 
   const callbackBeforeChange = useCallback(() => {
     if (onBeforeChange) {
@@ -77,7 +79,14 @@ function FullpageContainer({
     }
 
     setTransformY(temp);
-  }, [activeIndex, setActiveIndex, container, isLoaded, sectionCount]);
+  }, [
+    windowHeight,
+    activeIndex,
+    setActiveIndex,
+    container,
+    isLoaded,
+    sectionCount,
+  ]);
 
   useEffect(() => {
     if (container !== null && container.current) {
