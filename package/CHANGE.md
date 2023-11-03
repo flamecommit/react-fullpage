@@ -19,3 +19,7 @@
 ## 1.5.1
 
 - 외부에서 setActiveIndex 사용 시 callback함수가 실행되지 않던 현상을 수정했습니다.
+
+## 1.5.2
+
+- window height값 변경시 container의 transform 값을 조정합니다.
