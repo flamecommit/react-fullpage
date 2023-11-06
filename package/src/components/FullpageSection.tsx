@@ -135,18 +135,6 @@ function FullpageSection({
           sectionRef={sectionRef}
         />
       )}
-      <div
-        style={{
-          position: 'absolute',
-          top: '50px',
-          right: '50px',
-          background: '#000',
-          color: '#fff',
-          zIndex: 1000,
-        }}
-      >
-        contentsHeight : {contentsHeight}
-      </div>
     </div>
   );
 }

@@ -30,6 +30,7 @@ html.react-fullpage__html *:has(.react-fullpage__wrapper) {
   position: relative;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+  height: 100%;
 }
 .react-fullpage__section[data-active='true'] {
   overflow-y: auto;
