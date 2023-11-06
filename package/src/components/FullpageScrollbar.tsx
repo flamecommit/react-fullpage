@@ -7,12 +7,12 @@ import useMousePressed from '../hooks/useMousePressed';
 import useMousePosition from '../hooks/useMousePosition';
 
 interface IProps {
-  scrollHeight: number;
+  contentsHeight: number;
   scrollY: number;
-  section: RefObject<HTMLDivElement>;
+  sectionRef: RefObject<HTMLDivElement>;
 }
 
-function FullpageScrollbar({ scrollHeight, scrollY, section }: IProps) {
+function FullpageScrollbar({ contentsHeight, scrollY, sectionRef }: IProps) {
   const handler = useRef<HTMLButtonElement>(null);
   const { y: mouseY } = useMousePosition();
   const isMousePressed = useMousePressed(handler);
@@ -24,11 +24,11 @@ function FullpageScrollbar({ scrollHeight, scrollY, section }: IProps) {
 
   useEffect(() => {
     setHandlerTop(
-      (100 - (windowHeight / scrollHeight) * 100) *
-        (scrollY / (scrollHeight - windowHeight))
+      (100 - (windowHeight / contentsHeight) * 100) *
+        (scrollY / (contentsHeight - windowHeight))
     );
-    setHandlerHeight((windowHeight / scrollHeight) * 100);
-  }, [windowHeight, scrollHeight, scrollY]);
+    setHandlerHeight((windowHeight / contentsHeight) * 100);
+  }, [windowHeight, contentsHeight, scrollY]);
 
   useEffect(() => {
     if (isMousePressed) {
@@ -43,26 +43,26 @@ function FullpageScrollbar({ scrollHeight, scrollY, section }: IProps) {
   useEffect(() => {
     if (isMousePressed) {
       const newScrollY =
-        ((mouseY - pressMouseY) / windowHeight) * scrollHeight + pressScrollY;
+        ((mouseY - pressMouseY) / windowHeight) * contentsHeight + pressScrollY;
 
-      if (section.current) {
-        section.current.scrollTo(0, newScrollY);
+      if (sectionRef.current) {
+        sectionRef.current.scrollTo(0, newScrollY);
       }
     }
   }, [
     mouseY,
     pressMouseY,
     windowHeight,
-    scrollHeight,
+    contentsHeight,
     pressScrollY,
     isMousePressed,
-    section,
+    sectionRef,
   ]);
 
   return (
     <div
       className="react-fullpage__scrollbar"
-      style={{ height: `${scrollHeight}px` }}
+      style={{ height: `${contentsHeight}px` }}
     >
       <div
         className="react-fullpage__scrollbar-sticker"

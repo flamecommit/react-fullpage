@@ -23,3 +23,7 @@
 ## 1.5.2
 
 - window height값 변경시 container의 transform 값을 조정합니다.
+
+## 1.6.0
+
+- contents 의 높이값 변화를 감지하여 fullpage section, scroll의 상태를 갱신합니다.

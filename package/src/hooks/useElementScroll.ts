@@ -2,6 +2,7 @@ import { useState, useEffect, RefObject } from 'react';
 
 export default function useElementScroll(
   elementRef: RefObject<HTMLDivElement>,
+  contentsHeight: number
 ) {
   const [scrollPosition, setScrollPosition] = useState({
     scrollX: 0,
@@ -14,6 +15,8 @@ export default function useElementScroll(
 
   useEffect(() => {
     const targetElement = elementRef.current;
+
+    if (!targetElement) return;
 
     function handleScroll() {
       const scrollHeight = targetElement ? targetElement.scrollHeight : 0;
@@ -33,17 +36,21 @@ export default function useElementScroll(
       });
     }
 
-    if (targetElement) {
+    const resizeObserver = new ResizeObserver(() => {
       handleScroll();
-      targetElement.addEventListener('scroll', handleScroll);
-    }
+    });
+
+    handleScroll();
+    resizeObserver.observe(targetElement);
+    targetElement.addEventListener('scroll', handleScroll);
 
     return () => {
       if (targetElement) {
         targetElement.removeEventListener('scroll', handleScroll);
+        resizeObserver.disconnect();
       }
     };
-  }, [elementRef]);
+  }, [elementRef, contentsHeight]);
 
   return scrollPosition;
 }

@@ -7,6 +7,7 @@ import useSwipe, { SwipeDirection } from '../hooks/useSwipe';
 import FullpageContents from './FullpageContents';
 import FullpageScrollbar from './FullpageScrollbar';
 import useHash from '../hooks/useHash';
+import useElementSize from '../hooks/useElementSize';
 
 interface IProps {
   index?: number;
@@ -32,9 +33,13 @@ function FullpageSection({
   name = '',
   index = 0,
 }: IProps) {
-  const section = useRef<HTMLDivElement>(null);
-  const { isAtTop, isAtBottom, hasScrollbar, scrollHeight, scrollY } =
-    useElementScroll(section);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const contentsRef = useRef<HTMLDivElement>(null);
+  const { height: contentsHeight } = useElementSize(contentsRef);
+  const { isAtTop, isAtBottom, hasScrollbar, scrollY } = useElementScroll(
+    sectionRef,
+    contentsHeight
+  );
   const [scrollDelay, setScrollDelay] = useState<boolean>(false);
   const { hashValue, updateHash } = useHash();
 
@@ -107,13 +112,13 @@ function FullpageSection({
     }
   };
 
-  useSwipe(section, {
+  useSwipe(sectionRef, {
     onSwipeEnd: handleSwipeEnd,
   });
 
   return (
     <div
-      ref={section}
+      ref={sectionRef}
       onWheel={handelWheel}
       className={`react-fullpage__section`}
       data-active={activeIndex === index}
@@ -122,12 +127,12 @@ function FullpageSection({
         height: `${isAutoHeight ? 'auto' : '100%'}`,
       }}
     >
-      <FullpageContents>{children}</FullpageContents>
+      <FullpageContents contentsRef={contentsRef}>{children}</FullpageContents>
       {hasScrollbar && !isAnimating && (
         <FullpageScrollbar
-          scrollHeight={scrollHeight}
+          contentsHeight={contentsHeight}
           scrollY={scrollY}
-          section={section}
+          sectionRef={sectionRef}
         />
       )}
     </div>
