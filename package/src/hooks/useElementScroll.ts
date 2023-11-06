@@ -36,18 +36,12 @@ export default function useElementScroll(
       });
     }
 
-    const resizeObserver = new ResizeObserver(() => {
-      handleScroll();
-    });
-
     handleScroll();
-    resizeObserver.observe(targetElement);
     targetElement.addEventListener('scroll', handleScroll);
 
     return () => {
       if (targetElement) {
         targetElement.removeEventListener('scroll', handleScroll);
-        resizeObserver.disconnect();
       }
     };
   }, [elementRef, contentsHeight]);
