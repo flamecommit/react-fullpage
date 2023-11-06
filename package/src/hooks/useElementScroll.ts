@@ -10,7 +10,6 @@ export default function useElementScroll(
     isAtTop: true,
     isAtBottom: false,
     hasScrollbar: false,
-    scrollHeight: 0,
   });
 
   useEffect(() => {
@@ -19,12 +18,11 @@ export default function useElementScroll(
     if (!targetElement) return;
 
     function handleScroll() {
-      const scrollHeight = targetElement ? targetElement.scrollHeight : 0;
       const scrollTop = targetElement ? targetElement.scrollTop : 0;
       const isAtTop = scrollTop <= 0;
       const clientHeight = targetElement ? targetElement.clientHeight : 0;
-      const isAtBottom = scrollHeight - scrollTop <= clientHeight + 1;
-      const hasScrollbar = scrollHeight > clientHeight;
+      const isAtBottom = contentsHeight - scrollTop <= clientHeight + 1;
+      const hasScrollbar = contentsHeight > clientHeight;
 
       setScrollPosition({
         scrollX: targetElement?.scrollLeft || 0,
@@ -32,7 +30,6 @@ export default function useElementScroll(
         isAtTop,
         isAtBottom,
         hasScrollbar,
-        scrollHeight,
       });
     }
 
