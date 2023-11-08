@@ -1,4 +1,5 @@
 import { useState, useEffect, RefObject } from 'react';
+import useWindowSize from './useWindowSize';
 
 export default function useElementScroll(
   elementRef: RefObject<HTMLDivElement>,
@@ -11,6 +12,7 @@ export default function useElementScroll(
     isAtBottom: false,
     hasScrollbar: false,
   });
+  const { height: windowHeight } = useWindowSize();
 
   useEffect(() => {
     const targetElement = elementRef.current;
@@ -41,7 +43,7 @@ export default function useElementScroll(
         targetElement.removeEventListener('scroll', handleScroll);
       }
     };
-  }, [elementRef, contentsHeight]);
+  }, [elementRef, contentsHeight, windowHeight]);
 
   return scrollPosition;
 }
