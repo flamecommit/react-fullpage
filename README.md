@@ -1,11 +1,13 @@
 # React Fullpage
 
-[NPM](https://www.npmjs.com/package/@shinyongjun/react-fullpage)
+This is a Fullpage library that operates in React.
 
-실행 순서
+![Fullpage](https://github.com/shinyj1991/react-fullpage/raw/main/package/public/readme-1.gif)
 
-npm run link
+Example - [Link](https://shinyongjun.com/react-fullpage/example)
 
-npm run watch
+Document - [Link](https://shinyongjun.com/react-fullpage/document)
 
-npm run dev
+Issues - [Link](https://github.com/shinyj1991/react-fullpage/issues)
+
+NPM - [NPM](https://www.npmjs.com/package/@shinyongjun/react-fullpage)

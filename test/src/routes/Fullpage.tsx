@@ -8,6 +8,7 @@ import FirstSection from '../components/FirstSection';
 import FooterSection from '../components/FooterSection';
 import SecondSection from '../components/SecondSection';
 import ThirdSection from '../components/ThirdSection';
+import FourSection from '../components/FourSection';
 import '@shinyongjun/react-fullpage/css';
 
 function Fullpage() {
@@ -37,6 +38,9 @@ function Fullpage() {
         </FullpageSection>
         <FullpageSection name="third">
           <ThirdSection />
+        </FullpageSection>
+        <FullpageSection name="four">
+          <FourSection />
         </FullpageSection>
         <FullpageSection name="footer" isAutoHeight>
           <FooterSection />
