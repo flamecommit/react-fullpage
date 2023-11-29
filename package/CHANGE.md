@@ -27,3 +27,7 @@
 ## 1.6.0
 
 - contents 의 높이값 변화를 감지하여 fullpage section, scroll의 상태를 갱신합니다.
+
+## 1.8.0
+
+- allowScroll 값 추가. false일 때 fullpage scroll이 비활성화 됩니다. (기본값 true)

@@ -20,6 +20,7 @@ function Fullpage() {
         transitionDuration={700}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
+        allowScroll={false}
         onBeforeChange={(beforeIndex, afterIndex) => {
           console.log('before', beforeIndex, afterIndex);
         }}

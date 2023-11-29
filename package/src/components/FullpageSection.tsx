@@ -16,6 +16,7 @@ interface IProps {
   sectionCount?: number;
   isAnimating?: boolean;
   isLoaded?: boolean;
+  allowScroll?: boolean;
   setIsAnimating?: (payload: boolean) => void;
   setActiveIndex?: (payload: number) => void;
   isAutoHeight?: boolean;
@@ -24,6 +25,7 @@ interface IProps {
 
 function FullpageSection({
   children,
+  allowScroll,
   isAutoHeight = false,
   activeIndex,
   sectionCount,
@@ -69,7 +71,12 @@ function FullpageSection({
   }, [scrollDelay]);
 
   const moveToSection = (newIndex: number) => {
-    if (setIsAnimating === undefined || setActiveIndex === undefined) return;
+    if (
+      setIsAnimating === undefined ||
+      setActiveIndex === undefined ||
+      !allowScroll
+    )
+      return;
     if (isAnimating || scrollDelay) return;
     setIsAnimating(true);
     setActiveIndex(newIndex);

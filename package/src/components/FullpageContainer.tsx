@@ -10,6 +10,7 @@ interface IProps {
   children: React.ReactNode;
   activeIndex: number; // 현재 활성화 Section의 Index
   setActiveIndex: (afterIndex: number) => void;
+  allowScroll?: boolean; // scroll 활성화 여부
   transitionDuration?: number; // Section 전환 속도
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
@@ -19,6 +20,7 @@ interface IProps {
 function FullpageContainer({
   children,
   activeIndex,
+  allowScroll = true,
   transitionDuration = 700,
   setActiveIndex,
   onBeforeChange,
@@ -132,6 +134,7 @@ function FullpageContainer({
               activeIndex,
               sectionCount,
               isAnimating,
+              allowScroll,
               setIsAnimating,
               setActiveIndex,
             });
