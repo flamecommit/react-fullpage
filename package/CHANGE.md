@@ -31,3 +31,7 @@
 ## 1.8.0
 
 - allowScroll 값 추가. false일 때 fullpage scroll이 비활성화 됩니다. (기본값 true)
+
+## 1.8.1
+
+- allowScrollUp, allowScrollDown 옵션 추가.

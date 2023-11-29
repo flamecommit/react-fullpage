@@ -11,6 +11,8 @@ interface IProps {
   activeIndex: number; // 현재 활성화 Section의 Index
   setActiveIndex: (afterIndex: number) => void;
   allowScroll?: boolean; // scroll 활성화 여부
+  allowScrollUp?: boolean; // scroll 활성화 여부
+  allowScrollDown?: boolean; // scroll 활성화 여부
   transitionDuration?: number; // Section 전환 속도
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
@@ -21,6 +23,8 @@ function FullpageContainer({
   children,
   activeIndex,
   allowScroll = true,
+  allowScrollUp = true,
+  allowScrollDown = true,
   transitionDuration = 700,
   setActiveIndex,
   onBeforeChange,
@@ -135,6 +139,8 @@ function FullpageContainer({
               sectionCount,
               isAnimating,
               allowScroll,
+              allowScrollUp,
+              allowScrollDown,
               setIsAnimating,
               setActiveIndex,
             });
