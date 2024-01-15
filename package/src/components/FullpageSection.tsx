@@ -47,7 +47,7 @@ function FullpageSection({
     contentsHeight
   );
   const [scrollDelay, setScrollDelay] = useState<boolean>(false);
-  const { hashValue, updateHash } = useHash();
+  const { hashValue } = useHash();
 
   useEffect(() => {
     if (hashValue) {
@@ -55,10 +55,10 @@ function FullpageSection({
         if (setActiveIndex !== undefined) {
           setActiveIndex(index);
         }
-        updateHash();
+        // updateHash();
       }
     }
-  }, [hashValue, setActiveIndex, index, name, updateHash]);
+  }, [hashValue, setActiveIndex, index, name]);
 
   useEffect(() => {
     setScrollDelay(isAtTop || isAtBottom);

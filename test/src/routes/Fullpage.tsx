@@ -39,7 +39,7 @@ function Fullpage() {
         <FullpageSection name="third">
           <ThirdSection />
         </FullpageSection>
-        <FullpageSection name="four">
+        <FullpageSection name="fourth">
           <FourSection />
         </FullpageSection>
         <FullpageSection name="footer" isAutoHeight>
@@ -54,18 +54,25 @@ function Fullpage() {
           right: '50px',
         }}
       >
-        <button type="button" onClick={() => setActiveIndex(0)}>
-          go to 0
-        </button>
-        <button type="button" onClick={() => setActiveIndex(1)}>
-          go to 1
-        </button>
-        <button type="button" onClick={() => setActiveIndex(2)}>
-          go to 2
-        </button>
-        <button type="button" onClick={() => setActiveIndex(5)}>
-          go to 5
-        </button>
+        <div>
+          <button type="button" onClick={() => setActiveIndex(0)}>
+            go to 0
+          </button>
+          <button type="button" onClick={() => setActiveIndex(1)}>
+            go to 1
+          </button>
+          <button type="button" onClick={() => setActiveIndex(2)}>
+            go to 2
+          </button>
+          <button type="button" onClick={() => setActiveIndex(5)}>
+            go to 5
+          </button>
+        </div>
+        <div>
+          <a href="/fullpage#second">go to second</a>
+          <a href="/fullpage#third">go to third</a>
+          <a href="/fullpage#fourth">go to fourth</a>
+        </div>
         <div>{activeIndex}</div>
       </div>
     </>
