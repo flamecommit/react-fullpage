@@ -69,8 +69,12 @@ function Fullpage() {
           </button>
         </div>
         <div>
+          <a href="/fullpage#first">go to first</a>
+          <br />
           <a href="/fullpage#second">go to second</a>
+          <br />
           <a href="/fullpage#third">go to third</a>
+          <br />
           <a href="/fullpage#fourth">go to fourth</a>
         </div>
         <div>{activeIndex}</div>

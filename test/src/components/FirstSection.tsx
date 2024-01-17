@@ -8,6 +8,7 @@ function FirstSection() {
       style={{ width: '100%', backgroundColor: 'red' }}
     >
       <div>First Section</div>
+      <input type="text" />
       <Link to="/">Link to Home</Link>
     </div>
   );

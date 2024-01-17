@@ -35,7 +35,8 @@ function FullpageScrollbar({ contentsHeight, scrollY, sectionRef }: IProps) {
       setPressMouseY(mouseY);
       setPressScrollY(scrollY);
     } else {
-      window.getSelection()?.removeAllRanges();
+      // 삼성브라우저에서 인풋창에 키보드가 사라지는 현상으로 주석처리
+      // window.getSelection()?.removeAllRanges();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMousePressed]);
