@@ -37,7 +37,7 @@ function FullpageContainer({
   const prevActiveIndex = usePrevious(activeIndex) as number; // 직전 activeIndex 값
   const [sectionCount, setSectionCount] = useState<number>(0); // section 총 갯수
   const [isLoaded, setIsLoaded] = useState(false);
-  const { height: windowHeight } = useWindowSize();
+  const { width: windowWidth, height: windowHeight } = useWindowSize();
 
   const callbackBeforeChange = useCallback(() => {
     if (onBeforeChange) {
@@ -86,6 +86,7 @@ function FullpageContainer({
 
     setTransformY(temp);
   }, [
+    windowWidth,
     windowHeight,
     activeIndex,
     setActiveIndex,

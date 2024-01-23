@@ -6,11 +6,48 @@ function FooterSection() {
       className="footer-section"
       style={{
         width: '100%',
-        height: '200px',
+        height: 'auto',
         backgroundColor: 'black',
         color: 'white',
       }}
     >
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
+      Footer Section Footer Section Footer Section Footer Section Footer Section
       Footer Section
     </footer>
   );

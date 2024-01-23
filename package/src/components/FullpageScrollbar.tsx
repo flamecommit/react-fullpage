@@ -18,7 +18,7 @@ function FullpageScrollbar({ contentsHeight, scrollY, sectionRef }: IProps) {
   const isMousePressed = useMousePressed(handler);
   const [handlerHeight, setHandlerHeight] = useState<number>(0);
   const [handlerTop, setHandlerTop] = useState<number>(0);
-  const { height: windowHeight } = useWindowSize();
+  const { width: windowWidth, height: windowHeight } = useWindowSize();
   const [pressMouseY, setPressMouseY] = useState<number>(0);
   const [pressScrollY, setPressScrollY] = useState<number>(0);
 
@@ -53,6 +53,7 @@ function FullpageScrollbar({ contentsHeight, scrollY, sectionRef }: IProps) {
   }, [
     mouseY,
     pressMouseY,
+    windowWidth,
     windowHeight,
     contentsHeight,
     pressScrollY,
