@@ -12,6 +12,7 @@
   overflow-y: hidden;
   position: relative;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
   width: 100%;
   height: 100%;
 }
