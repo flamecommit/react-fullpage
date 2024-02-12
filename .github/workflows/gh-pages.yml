@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 코드
+        uses: actions/checkout@v2
+
+      - name: 의존성 설치
+        run: |
+          cd ./test
+          npm install
+
+      - name: 빌드
+        run: |
+          cd ./test
+          npm run build
+
+      - name: gh-pages 브랜치로 배포
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./test/build
+          publish_branch: gh-pages
