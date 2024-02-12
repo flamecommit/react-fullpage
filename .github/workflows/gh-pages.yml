@@ -15,16 +15,16 @@ jobs:
 
       - name: 의존성 설치
         run: |
-          cd ./test
+          cd ./demo
           npm install
 
       - name: 빌드
         run: |
-          cd ./test
+          cd ./demo
           npm run build
 
       - name: gh-pages 브랜치로 배포
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./test/build
+          publish_dir: ./demo/build
           publish_branch: gh-pages

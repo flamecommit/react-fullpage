@@ -7,12 +7,14 @@
   "scripts": {
     "build": "npm run build -w package",
     "watch": "npm run watch -w package",
-    "dev": "npm run start -w test",
+    "dev:test": "npm run start -w test",
+    "dev:demo": "npm run start -w demo",
     "link": "npm link -w package && npm link @shinyongjun/react-fullpage -w test",
     "publish": "npm publish --access public -w package"
   },
   "workspaces": [
     "package",
-    "test"
+    "test",
+    "demo"
   ]
 }
