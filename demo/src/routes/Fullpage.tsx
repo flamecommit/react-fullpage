@@ -2,7 +2,6 @@ import {
   FullpageContainer,
   FullpageSection,
 } from '@shinyongjun/react-fullpage';
-import '@shinyongjun/react-fullpage/css';
 import * as React from 'react';
 import { useState } from 'react';
 import FirstSection from '../components/FirstSection';
