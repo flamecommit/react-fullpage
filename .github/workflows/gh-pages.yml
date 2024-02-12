@@ -28,6 +28,12 @@ jobs:
           cd ./demo
           npm run build
 
+      - name: artifacts로 파일 저장
+        uses: actions/upload-artifact@v2
+        with:
+          name: built-files
+          path: ./build
+
       - name: gh-pages 브랜치로 배포
         uses: peaceiris/actions-gh-pages@v3
         with:
