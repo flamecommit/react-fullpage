@@ -7,12 +7,21 @@ react-fullpage 라이브러리는 React 기반의 웹 애플리케이션에서 �
 - 웹 페이지를 여러 섹션으로 나누고, 각 섹션을 전체 화면으로 표시할 수 있습니다.
 - 다양한 스크롤 이벤트를 사용하여 사용자 경험을 향상시킬 수 있습니다.
 - 사용자 정의 가능한 옵션을 통해 페이지 전환 효과나 스타일을 설정할 수 있습니다.
+  ​
 
-## 사용 방법
+## 설치
 
-1. React-fullpage 라이브러리를 설치합니다.
-2. 페이지 컴포넌트에서 Fullpage 컴포넌트를 import 합니다.
-3. Fullpage 컴포넌트를 사용하여 원하는 섹션을 정의합니다.
+npm을 사용하여 설치할 수 있습니다.
+
+```bash
+npm install @shinyongjun/react-fullpage
+```
+
+또는 yarn을 사용할 수도 있습니다.
+
+```bash
+yarn add @shinyongjun/react-fullpage
+```
 
 ## 예제 코드
 
@@ -61,8 +70,8 @@ export default MyPage;
 
 ## 실제 사용 사례
 
-react-fullpage 라이브러리를 활용하여 구현된 [예시](https://shinyongjun.vercel.app/library/react-fullpage) 웹사이트입니다.
+라이브러리의 데모는 [여기](https://shinyongjun.vercel.app/library/react-fullpage)에서 만나볼 수 있습니다.
 
 ## 피드백 및 지원
 
-라이브러리에 대한 피드백이나 문제 신고는 [GitHub Issues](https://github.com/shinyj1991/react-fullpage/issues) 페이지에서 제공합니다. 또한, 공식 문서에서 추가적인 정보를 확인할 수 있습니다.
+라이브러리에 대한 피드백이나 문제 신고는 [GitHub Issues 페이지](https://github.com/shinyj1991/react-fullpage/issues)에서 제공합니다.
