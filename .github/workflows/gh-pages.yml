@@ -13,6 +13,11 @@ jobs:
       - name: Checkout 코드
         uses: actions/checkout@v2
 
+      - name: Node.js 설치
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.18.2'
+
       - name: 의존성 설치
         run: |
           cd ./demo
