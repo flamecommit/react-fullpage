@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout 코드
         uses: actions/checkout@v2
+        with:
+          path: 'demo'
 
       - name: Node.js 설치
         uses: actions/setup-node@v2
@@ -22,10 +24,10 @@ jobs:
         run: npm install
 
       - name: 빌드
-        run: npm run build:demo
+        run: npm run build
 
       - name: gh-pages 브랜치로 배포
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./demo/build
+          publish_dir: ./build
           publish_branch: gh-pages
