@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "source": "./src/index.tsx",
@@ -13,7 +13,7 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
-    "./css": "./dist/assets/ReactFullpage.css"
+    "./css": "./dist/assets/global.css"
   },
   "description": "This is a Fullpage library that operates in React.",
   "keywords": [
