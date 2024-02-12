@@ -9,12 +9,10 @@
     "watch": "npm run watch -w package",
     "dev": "npm run start -w test",
     "link": "npm link -w package && npm link @shinyongjun/react-fullpage -w test",
-    "publish": "npm publish --access public -w package",
-    "dev:demo": "npm run start -w demo"
+    "publish": "npm publish --access public -w package"
   },
   "workspaces": [
     "package",
-    "test",
-    "demo"
+    "test"
   ]
 }
