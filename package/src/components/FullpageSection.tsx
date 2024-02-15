@@ -24,7 +24,7 @@ interface IProps {
   isAutoHeight?: boolean;
   name?: string;
   topScrollOnChange?: boolean;
-  transitionDuration: number;
+  transitionDuration?: number;
 }
 
 function FullpageSection({
