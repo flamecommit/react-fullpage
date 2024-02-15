@@ -20,7 +20,7 @@ function Fullpage() {
         transitionDuration={700}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
-        topScrollOnSectionChange={true}
+        topScrollOnChange={true}
         onBeforeChange={(beforeIndex, afterIndex) => {
           console.log('before', beforeIndex, afterIndex);
         }}

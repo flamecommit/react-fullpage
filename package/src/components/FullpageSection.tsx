@@ -23,7 +23,7 @@ interface IProps {
   setActiveIndex?: (payload: number) => void;
   isAutoHeight?: boolean;
   name?: string;
-  topScrollOnSectionChange?: boolean;
+  topScrollOnChange?: boolean;
   transitionDuration: number;
 }
 
@@ -40,7 +40,7 @@ function FullpageSection({
   setIsAnimating,
   name = '',
   index = 0,
-  topScrollOnSectionChange,
+  topScrollOnChange,
   transitionDuration,
 }: IProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -136,7 +136,7 @@ function FullpageSection({
   });
 
   useEffect(() => {
-    if (topScrollOnSectionChange) {
+    if (topScrollOnChange) {
       if (activeIndex !== index) {
         setTimeout(() => {
           sectionRef.current?.scrollTo(0, 0);

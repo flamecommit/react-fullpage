@@ -17,7 +17,7 @@ interface IProps {
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterLoad?: (container: React.RefObject<HTMLDivElement>) => void;
-  topScrollOnSectionChange?: boolean; // Section 전환 시 Section 내부 Scroll을 항상 top 고정
+  topScrollOnChange?: boolean; // Section 전환 시 Section 내부 Scroll을 항상 top 고정
 }
 
 function FullpageContainer({
@@ -31,7 +31,7 @@ function FullpageContainer({
   onBeforeChange,
   onAfterChange,
   onAfterLoad,
-  topScrollOnSectionChange = false,
+  topScrollOnChange = false,
 }: IProps) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
@@ -146,7 +146,7 @@ function FullpageContainer({
               allowScroll,
               allowScrollUp,
               allowScrollDown,
-              topScrollOnSectionChange,
+              topScrollOnChange,
               transitionDuration,
             });
           })}
