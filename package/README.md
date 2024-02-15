@@ -70,7 +70,7 @@ export default MyPage;
 
 ## 실제 사용 사례
 
-라이브러리의 데모는 [여기](https://shinyongjun.com/library/react-fullpage)에서 만나볼 수 있습니다.
+라이브러리의 사용 예시는 [Demo](https://shinyongjun.com/library/react-fullpage)에서 확인할 수 있습니다.
 
 ## 피드백 및 지원
 
