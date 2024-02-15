@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { useState } from 'react';
 import {
   FullpageContainer,
   FullpageSection,
 } from '@shinyongjun/react-fullpage';
+import '@shinyongjun/react-fullpage/css';
+import * as React from 'react';
+import { useState } from 'react';
 import FirstSection from '../components/FirstSection';
 import FooterSection from '../components/FooterSection';
+import FourSection from '../components/FourSection';
 import SecondSection from '../components/SecondSection';
 import ThirdSection from '../components/ThirdSection';
-import FourSection from '../components/FourSection';
-import '@shinyongjun/react-fullpage/css';
 
 function Fullpage() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -20,6 +20,7 @@ function Fullpage() {
         transitionDuration={700}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
+        topScrollOnSectionChange={true}
         onBeforeChange={(beforeIndex, afterIndex) => {
           console.log('before', beforeIndex, afterIndex);
         }}

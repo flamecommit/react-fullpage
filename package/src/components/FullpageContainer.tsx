@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import FullpageWrapper from './FullpageWrapper';
 import usePrevious from '../hooks/usePrevious';
 import useWindowSize from '../hooks/useWindowSize';
+import FullpageWrapper from './FullpageWrapper';
 
 interface IProps {
   children: React.ReactNode;
@@ -17,6 +17,7 @@ interface IProps {
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterLoad?: (container: React.RefObject<HTMLDivElement>) => void;
+  topScrollOnSectionChange?: boolean; // Section 전환 시 Section 내부 Scroll을 항상 top 고정
 }
 
 function FullpageContainer({
@@ -30,6 +31,7 @@ function FullpageContainer({
   onBeforeChange,
   onAfterChange,
   onAfterLoad,
+  topScrollOnSectionChange = false,
 }: IProps) {
   const [transformY, setTransformY] = useState<number>(0);
   const container = useRef<HTMLDivElement>(null);
@@ -59,7 +61,7 @@ function FullpageContainer({
     const timer = setTimeout(() => {
       setIsAnimating(false);
       callbackAfterChange();
-    }, 700);
+    }, transitionDuration);
 
     return () => clearTimeout(timer);
   }, [activeIndex, callbackBeforeChange, callbackAfterChange]);
@@ -137,13 +139,15 @@ function FullpageContainer({
             return React.cloneElement(item, {
               index,
               activeIndex,
+              setActiveIndex,
               sectionCount,
               isAnimating,
+              setIsAnimating,
               allowScroll,
               allowScrollUp,
               allowScrollDown,
-              setIsAnimating,
-              setActiveIndex,
+              topScrollOnSectionChange,
+              transitionDuration,
             });
           })}
       </div>

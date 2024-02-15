@@ -3,11 +3,11 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import useElementScroll from '../hooks/useElementScroll';
+import useElementSize from '../hooks/useElementSize';
+import useHash from '../hooks/useHash';
 import useSwipe, { SwipeDirection } from '../hooks/useSwipe';
 import FullpageContents from './FullpageContents';
 import FullpageScrollbar from './FullpageScrollbar';
-import useHash from '../hooks/useHash';
-import useElementSize from '../hooks/useElementSize';
 
 interface IProps {
   index?: number;
@@ -23,6 +23,8 @@ interface IProps {
   setActiveIndex?: (payload: number) => void;
   isAutoHeight?: boolean;
   name?: string;
+  topScrollOnSectionChange?: boolean;
+  transitionDuration: number;
 }
 
 function FullpageSection({
@@ -38,6 +40,8 @@ function FullpageSection({
   setIsAnimating,
   name = '',
   index = 0,
+  topScrollOnSectionChange,
+  transitionDuration,
 }: IProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentsRef = useRef<HTMLDivElement>(null);
@@ -130,6 +134,16 @@ function FullpageSection({
   useSwipe(sectionRef, {
     onSwipeEnd: handleSwipeEnd,
   });
+
+  useEffect(() => {
+    if (topScrollOnSectionChange) {
+      if (activeIndex !== index) {
+        setTimeout(() => {
+          sectionRef.current?.scrollTo(0, 0);
+        }, transitionDuration);
+      }
+    }
+  }, [activeIndex]);
 
   return (
     <div
