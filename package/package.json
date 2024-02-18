@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "source": "./src/index.tsx",
@@ -21,7 +21,7 @@
     "fullpage",
     "scroll"
   ],
-  "homepage": "https://shinyongjun.com/react-fullpage/document",
+  "homepage": "https://shinyongjun.gitbook.io/react-fullpage",
   "bugs": {
     "url": "https://github.com/shinyj1991/react-fullpage/issues",
     "email": "shinyj1991@gmail.com"
