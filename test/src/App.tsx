@@ -1,7 +1,6 @@
-import * as React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './routes/Home';
 import Fullpage from './routes/Fullpage';
+import Home from './routes/Home';
 
 function App() {
   return (

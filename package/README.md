@@ -66,7 +66,7 @@ export default MyPage;
 
 ## API 문서
 
-라이브러리의 주요 API들에 대한 문서를 [여기](https://shinyongjun.gitbook.io/react-fullpage/)에서 확인할 수 있습니다.
+라이브러리의 주요 API들에 대한 문서를 [Docs](https://shinyongjun.gitbook.io/react-fullpage/)에서 확인할 수 있습니다.
 
 ## 실제 사용 사례
 

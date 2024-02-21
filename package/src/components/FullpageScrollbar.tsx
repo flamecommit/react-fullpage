@@ -1,10 +1,9 @@
 'use client';
 
-import * as React from 'react';
 import { RefObject, useEffect, useRef, useState } from 'react';
-import useWindowSize from '../hooks/useWindowSize';
-import useMousePressed from '../hooks/useMousePressed';
 import useMousePosition from '../hooks/useMousePosition';
+import useMousePressed from '../hooks/useMousePressed';
+import useWindowSize from '../hooks/useWindowSize';
 
 interface IProps {
   contentsHeight: number;

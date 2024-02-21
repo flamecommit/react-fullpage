@@ -1,13 +1,21 @@
 'use client';
 
-import * as React from 'react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  Children,
+  ReactNode,
+  RefObject,
+  cloneElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import usePrevious from '../hooks/usePrevious';
 import useWindowSize from '../hooks/useWindowSize';
 import FullpageWrapper from './FullpageWrapper';
 
 interface IProps {
-  children: React.ReactNode;
+  children: ReactNode;
   activeIndex: number; // 현재 활성화 Section의 Index
   setActiveIndex: (afterIndex: number) => void;
   allowScroll?: boolean; // scroll 활성화 여부
@@ -16,7 +24,7 @@ interface IProps {
   transitionDuration?: number; // Section 전환 속도
   onBeforeChange?: (beforeIndex: number, afterIndex: number) => void;
   onAfterChange?: (beforeIndex: number, afterIndex: number) => void;
-  onAfterLoad?: (container: React.RefObject<HTMLDivElement>) => void;
+  onAfterLoad?: (container: RefObject<HTMLDivElement>) => void;
   topScrollOnChange?: boolean; // Section 전환 시 Section 내부 Scroll을 항상 top 고정
 }
 
@@ -64,6 +72,7 @@ function FullpageContainer({
     }, transitionDuration);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex, callbackBeforeChange, callbackAfterChange]);
 
   /**
@@ -134,9 +143,9 @@ function FullpageContainer({
         data-is-animating={isAnimating}
       >
         {isLoaded &&
-          React.Children.map(children, (child, index) => {
+          Children.map(children, (child, index) => {
             const item = child as React.ReactElement;
-            return React.cloneElement(item, {
+            return cloneElement(item, {
               index,
               activeIndex,
               setActiveIndex,

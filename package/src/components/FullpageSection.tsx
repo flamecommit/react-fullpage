@@ -1,7 +1,6 @@
 'use client';
 
-import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import useElementScroll from '../hooks/useElementScroll';
 import useElementSize from '../hooks/useElementSize';
 import useHash from '../hooks/useHash';
@@ -11,7 +10,7 @@ import FullpageScrollbar from './FullpageScrollbar';
 
 interface IProps {
   index?: number;
-  children?: React.ReactNode;
+  children?: ReactNode;
   activeIndex?: number;
   sectionCount?: number;
   isAnimating?: boolean;
@@ -143,6 +142,7 @@ function FullpageSection({
         }, transitionDuration);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex]);
 
   return (

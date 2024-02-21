@@ -1,10 +1,10 @@
 'use client';
 
-import * as React from 'react';
+import { ReactNode, RefObject } from 'react';
 
 interface IProps {
-  contentsRef: React.RefObject<HTMLDivElement>;
-  children: React.ReactNode;
+  contentsRef: RefObject<HTMLDivElement>;
+  children: ReactNode;
 }
 
 function FullpageContents({ contentsRef, children }: IProps) {

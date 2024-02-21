@@ -1,8 +1,3 @@
 {
-  "root": true,
-  "extends": "@shinyongjun",
-  "rules": {
-    "import/no-unresolved": "off",
-    "react/jsx-filename-extension": "off"
-  }
+  "extends": "@shinyongjun"
 }

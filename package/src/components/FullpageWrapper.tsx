@@ -1,8 +1,7 @@
-import * as React from 'react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
 interface IProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const FullpageWrapper = ({ children }: IProps) => {
