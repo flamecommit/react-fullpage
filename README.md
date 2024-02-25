@@ -74,4 +74,4 @@ export default MyPage;
 
 ## 피드백 및 지원
 
-라이브러리에 대한 피드백이나 문제 신고는 [GitHub Issues 페이지](https://github.com/shinyj1991/react-fullpage/issues)에서 제공합니다.
+라이브러리에 대한 피드백이나 문제 신고는 [GitHub Issues 페이지](https://github.com/flamecommit/react-fullpage/issues)에서 제공합니다.

@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.9.5",
+  "version": "1.9.6",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "source": "./src/index.tsx",
@@ -23,7 +23,7 @@
   ],
   "homepage": "https://shinyongjun.gitbook.io/react-fullpage",
   "bugs": {
-    "url": "https://github.com/shinyj1991/react-fullpage/issues",
+    "url": "https://github.com/flamecommit/react-fullpage/issues",
     "email": "shinyj1991@gmail.com"
   },
   "author": {
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shinyj1991/react-fullpage.git"
+    "url": "https://github.com/flamecommit/react-fullpage.git"
   },
   "files": [
     "dist"
