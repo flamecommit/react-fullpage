@@ -8,6 +8,7 @@
     "build": "npm run build -w package",
     "watch": "npm run watch -w package",
     "test": "npm run start -w test",
+    "dev": "concurrently \"npm run watch\" \"npm run test\"",
     "link": "npm link -w package && npm link @shinyongjun/react-fullpage -w test",
     "publish": "npm publish --access public -w package"
   },
