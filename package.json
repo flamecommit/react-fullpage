@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npm run build -w package",
     "watch": "npm run watch -w package",
-    "dev": "npm run start -w test",
+    "test": "npm run start -w test",
     "link": "npm link -w package && npm link @shinyongjun/react-fullpage -w test",
     "publish": "npm publish --access public -w package"
   },
