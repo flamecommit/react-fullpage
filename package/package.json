@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "source": "./src/index.tsx",
@@ -21,7 +21,7 @@
     "fullpage",
     "scroll"
   ],
-  "homepage": "https://shinyongjun.gitbook.io/react-fullpage",
+  "homepage": "https://www.shinyongjun.com/library",
   "bugs": {
     "url": "https://github.com/flamecommit/react-fullpage/issues",
     "email": "shinyj1991@gmail.com"
@@ -29,7 +29,7 @@
   "author": {
     "name": "shinyongjun",
     "email": "shinyj1991@gmail.com",
-    "url": "https://shinyongjun.com"
+    "url": "https://www.shinyongjun.com"
   },
   "repository": {
     "type": "git",

@@ -66,11 +66,11 @@ export default MyPage;
 
 ## API 문서
 
-라이브러리의 주요 API들에 대한 문서를 [Docs](https://shinyongjun.com/library/react-fullpage/docs)에서 확인할 수 있습니다.
+라이브러리의 주요 API들에 대한 문서를 [Docs](https://www.shinyongjun.com/library/react-fullpage/docs/Getting%20Started/Overview)에서 확인할 수 있습니다.
 
 ## 실제 사용 사례
 
-라이브러리의 사용 예시는 [Demo](https://shinyongjun.com/library/react-fullpage/demo)에서 확인할 수 있습니다.
+라이브러리의 사용 예시는 [Demo](https://www.shinyongjun.com/library/react-fullpage/demo)에서 확인할 수 있습니다.
 
 ## 피드백 및 지원
 
