@@ -51,6 +51,12 @@ function FullpageSection({
   );
   const [scrollDelay, setScrollDelay] = useState<boolean>(false);
   const { hashValue } = useHash();
+  const deltaWeightTimer = useRef<number>(0);
+  const [deltaWeight, setDeltaWeight] = useState<number>(0); // wheel 가중치
+  const [lastDeltaWeight, setLastDeltaWeight] = useState<number>(0);
+  // wheel 속도가 마지막 wheel 속도보다 빠르면 true 또는 wheel이벤트가 300ms 이상 없으면 true
+  const wheelTokenTimer = useRef<NodeJS.Timeout | null>(null);
+  const wheelToken = useRef<boolean>(true);
 
   useEffect(() => {
     if (hashValue) {
@@ -78,13 +84,8 @@ function FullpageSection({
   }, [scrollDelay]);
 
   const moveToSection = (newIndex: number) => {
-    if (
-      setIsAnimating === undefined ||
-      setActiveIndex === undefined ||
-      !allowScroll
-    )
-      return;
-    if (isAnimating || scrollDelay) return;
+    if (setIsAnimating === undefined || setActiveIndex === undefined) return; // 타입 에러 회피용
+    if (!allowScroll || isAnimating || scrollDelay) return;
     setIsAnimating(true);
     setActiveIndex(newIndex);
   };
@@ -112,6 +113,23 @@ function FullpageSection({
   };
 
   const handelWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const t = new Date().getTime();
+    if (t - deltaWeightTimer.current < 300) {
+      const computed = deltaWeight + Math.abs(e.deltaY);
+      if (computed > lastDeltaWeight) {
+        // wheel의 속도가 lastDeltaWeight보다 높으면 token 초기화
+        wheelToken.current = true;
+      }
+      setDeltaWeight(computed);
+    } else {
+      setLastDeltaWeight(deltaWeight);
+      deltaWeightTimer.current = t;
+      setDeltaWeight(0);
+    }
+
+    // token이 false라면 스크립트 중지
+    if (!wheelToken.current) return;
+
     if (e.deltaY > 0) {
       moveToNextSection();
     }
@@ -119,6 +137,19 @@ function FullpageSection({
       moveToPrevSection();
     }
   };
+
+  useEffect(() => {
+    wheelToken.current = false;
+    if (wheelTokenTimer.current !== null) {
+      clearTimeout(wheelTokenTimer.current);
+    }
+    wheelTokenTimer.current = setTimeout(() => {
+      // wheel이벤트가 300ms동안 발생하지 않으면 token 초기화
+      wheelToken.current = true;
+      setDeltaWeight(0);
+    }, 300);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deltaWeight]);
 
   const handleSwipeEnd = (direction: SwipeDirection) => {
     if (direction === 'UP') {

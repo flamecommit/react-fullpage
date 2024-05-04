@@ -19,16 +19,16 @@ function Fullpage() {
         transitionDuration={700}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
-        topScrollOnChange={true}
-        onBeforeChange={(beforeIndex, afterIndex) => {
-          console.log('before', beforeIndex, afterIndex);
-        }}
-        onAfterChange={(beforeIndex, afterIndex) => {
-          console.log('after', beforeIndex, afterIndex);
-        }}
-        onAfterLoad={(container) => {
-          console.log('afterLoad', container);
-        }}
+        topScrollOnChange={false}
+        // onBeforeChange={(beforeIndex, afterIndex) => {
+        //   console.log('before', beforeIndex, afterIndex);
+        // }}
+        // onAfterChange={(beforeIndex, afterIndex) => {
+        //   console.log('after', beforeIndex, afterIndex);
+        // }}
+        // onAfterLoad={(container) => {
+        //   console.log('afterLoad', container);
+        // }}
       >
         <FullpageSection name="first">
           <FirstSection />
