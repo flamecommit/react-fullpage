@@ -1,6 +1,6 @@
 {
   "name": "@shinyongjun/react-fullpage",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "source": "./src/index.tsx",
@@ -75,6 +75,6 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "react": "^18.0.0"
+    "react": "^18.0.0 || ^19.0.0"
   }
 }
